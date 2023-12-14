@@ -1,0 +1,1028 @@
+<html>
+  <head>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+  
+        .category-title {
+          font-size: 24px;
+          color: #266431;
+          font-weight: 700;
+          padding: 10px 0;
+          line-height: 1.2;
+        }
+  
+        details summary {
+          list-style-type: '';
+        }
+  
+        p {
+          margin: 0 0 10px;
+        }
+  
+        .accordion {
+          .accordion-btn {
+            position: relative;
+            border: none;
+            padding: 20px 30px 20px 20px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 0.25px solid;
+            list-style-image: none;
+  
+            &::-webkit-details-marker {
+              background-color: none;
+              color: transparent;
+              background-color: red;
+            }
+  
+            &::after {
+              content: '+';
+              position: absolute;
+              top: 50%;
+              right: -5px;
+              font-size: 24px;
+              font-family: monospace;
+              width: 35px;
+              height: 35px;
+              text-align: center;
+  
+              color: #266431;
+              transform: translate(0%, -50%);
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              padding-bottom: 4px;
+              padding-left: 2px;
+              justify-content: center;
+              font-weight: normal;
+              transition: all 0.3s ease;
+            }
+          }
+  
+          .accordion-content {
+            background-color: #ffffff;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            border-bottom: 0.25px solid;
+            padding: 15px 25px 15px 15px;
+  
+            > p {
+              padding: 0px 30px;
+            }
+          }
+  
+          &[open] {
+            .accordion-btn {
+              background-color: #e5e5e5;
+            }
+  
+            .accordion-btn::after {
+              content: '\2212';
+              font-size: 24px;
+              color: #266431;
+            }
+  
+            summary ~ * {
+              overflow: hidden;
+              animation: heightUp 1s ease-in-out;
+            }
+          }
+        }
+  
+        /* Mobile */
+        @media screen and (max-width: 739px) {
+          .category-title {
+            font-size: 16px;
+          }
+  
+          .accordion {
+            &[open] {
+              .accordion-btn {
+                background-color: #e5e5e5;
+              }
+            }
+            .accordion-content {
+              > p {
+                padding: 0px 20px;
+              }
+            }
+          }
+  
+          .category {
+            margin-bottom: 40px;
+          }
+        }
+  
+        .bold {
+          font-weight: 700;
+        }
+  
+        .italic {
+          font-style: italic;
+        }
+  
+        .underline {
+          text-decoration-line: underline;
+        }
+  
+        .category {
+          margin-bottom: 60px;
+        }
+  
+        table.tg {
+          width: 100% !important;
+        }
+  
+        .tg {
+          border-collapse: collapse;
+          border-spacing: 0;
+          margin: 0px auto;
+        }
+  
+        .tg td {
+          border-color: black;
+          border-style: solid;
+          border-width: 1px;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          overflow: hidden;
+          padding: 10px 5px;
+          word-break: normal;
+        }
+        .tg th {
+          border-color: black;
+          border-style: solid;
+          border-width: 1px;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          font-weight: normal;
+          overflow: hidden;
+          padding: 10px 5px;
+          word-break: normal;
+        }
+        .tg .tg-gmla {
+          border-color: inherit;
+          font-size: 16px;
+          text-align: center;
+          vertical-align: top;
+        }
+        .tg .tg-2asz {
+          border-color: inherit;
+          font-family: Impact, Charcoal, sans-serif !important;
+          font-size: 14px;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-zd5i {
+          border-color: inherit;
+          font-size: 14px;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-ltad {
+          font-size: 14px;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-0pky {
+          border-color: inherit;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-0lax {
+          text-align: left;
+          vertical-align: top;
+        }
+        .dot-item {
+          font-weight: 400;
+          font-style: normal;
+          text-decoration: none;
+        }
+        .dot-title {
+          font-weight: 700;
+          font-style: normal;
+          text-decoration: none;
+        }
+  
+        .faq {
+          margin: 0 20px;
+        }
+  
+        @keyframes heightUp {
+          0% {
+            max-height: 0;
+          }
+          100% {
+            max-height: 2000px;
+          }
+        }
+      </style>
+  </head>
+  <body>
+    <div class="faq"></div>
+  </body>
+
+  <script>
+    const DATA = [
+      {
+        category: 'General Login Information',
+        questions: [
+          {
+            id: 1,
+            title: '如何註冊登入使賀寶芙活躍生活挑戰者？',
+            answer: [
+              '活躍生活挑戰者是賀寶芙獨家健身活動追蹤器，提供給我們所有的賀寶芙健康事業會員、優惠顧客及受邀顧客使用。只需從您的Apple App商店或Google Play商店下載 Herbalife Hub應用程式。使用您的賀寶芙健康事業會員 ID 或優惠顧客ID和密碼登入，選擇活躍生活挑戰者。針對賀寶芙健康事業會員和優惠顧客的顧客（非賀寶芙健康事業會員），請使用電子邀請函的電子郵件和預設密碼登入，或點擊「註冊」，使用賀寶芙健康事業會員提供的專屬團隊代碼，在Herbalife Hub應用程式上建立帳戶，啟用活躍生活挑戰者。',
+            ],
+          },
+          {
+            id: 2,
+            title: '誰可以使用賀寶芙活躍生活挑戰者？',
+            answer: [
+              '賀寶芙活躍生活挑戰者是賀寶芙的獨家健身活動追蹤器，提供給我們所有的賀寶芙健康事業會員、優惠顧客及其受邀顧客（非賀寶芙健康事業會員）。',
+            ],
+          },
+          {
+            id: 3,
+            title:
+              '我不是賀寶芙健康事業會員或優惠顧客。我也可以使用活躍生活挑戰者嗎？',
+            answer: [
+              '是的，只要您收到賀寶芙健康事業會員的獨家電子郵件邀請或專屬團隊代碼，並同意接受適用的條款和條件，即可使用賀寶芙活躍生活挑戰者，加入活躍生活挑戰者的社群。（超連結到條款和條件',
+            ],
+          },
+          {
+            id: 4,
+            title:
+              '作為顧客（非賀寶芙健康事業會員），如果我收到賀寶芙健康事業會員的電子郵件邀請，我該如何登入並使用活躍生活挑戰者？',
+            answer: [
+              '從您的Apple App商店或 Google Play商店下載Herbalife Hub應用程式。在登入頁面，輸入電子郵件邀請的電子郵件作為登入ID，並輸入電子郵件邀請中的預設密碼。首次登入時，系統將要求您重置密碼並完成一次性密碼OTP驗證。成順利驗證完畢，點擊活躍生活挑戰者，開始活出您最精彩的人生！',
+            ],
+          },
+          {
+            id: 5,
+            title:
+              '如何使用賀寶芙健康事業會員發送給我的專屬團隊代碼登入，並進入活躍生活挑戰者？',
+            answer: [
+              '從您的Apple App商店或 Google Play商店下載Herbalife Hub應用程式。在登入頁面，點下「註冊」就可以建立帳戶。輸入專屬團隊代碼，並填寫註冊表單。首次登入時，系統將要求您完成一次性密碼OTP驗證。順利驗證完畢，點擊活躍生活挑戰者，開始活出您最精彩的人生！',
+            ],
+          },
+          {
+            id: 6,
+            title: '作為賀寶芙健康事業會員，我如何使用活躍生活挑戰者？',
+            answer: [
+              '如果您是賀寶芙健康事業會員，您可以使用您的MyHerbalife.com個人資料，登入活躍生活挑戰者。',
+            ],
+          },
+          {
+            id: 7,
+            title: '使用活躍生活挑戰者是否需要支付費用？',
+            answer: [
+              '活躍生活挑戰者不收取任何訂閱費。這是免費的賀寶芙獨家健身活動追蹤器，提供給我們所有的賀寶芙健康事業會員、優惠顧客及其受邀顧客（非健康事業會員）。',
+            ],
+          },
+          {
+            id: 8,
+            title: '為什麼我被要求要輸入發送到我電子郵件的一次性OTP驗證碼？',
+            answer: [
+              'OTP驗證碼提供額外的安全防護，防止任何人使用您的電子郵件建立未經授權的帳戶。OTP驗證碼有時效性，發送到您指定的電子郵件位址後，您必須在5分鐘內輸入該驗證碼。',
+            ],
+          },
+          {
+            id: 9,
+            title: '如果我沒有收到一次性OTP驗證碼電子郵件，我該怎麼做？',
+            answer: [
+              '如果您的收件匣中沒有收到OTP電子郵件，請搜尋您的垃圾郵件資料夾，有可能會誤寄。您也可以在1分鐘後點擊「重新發送一次性密碼」按鈕，重新寄送一封附有OTP驗證碼的電子郵件。如果問題未解決，請在此處與我們聯繫。（指向 .com 上“聯繫我們”頁面的超連結）',
+            ],
+          },
+          {
+            id: 10,
+            title: '我忘記密碼了。該怎麼做？',
+            answer: [
+              '在登入頁面上選擇「忘記密碼」以重置密碼。輸入您註冊的電子郵件以接收OTP驗證碼電子郵件，重置您的密碼。',
+            ],
+          },
+          {
+            id: 11,
+            title: '活躍生活挑戰者是否僅在特定時間內才能使用？',
+            answer: [
+              '不是的，除非賀寶芙另有說明，否則目前居住在印尼、日本、韓國、馬來西亞、菲律賓、新加坡、臺灣和泰國的所有賀寶芙健康事業會員、優惠顧客及其受邀顧客（非健康事業會員）均可使用活躍生活挑戰者。',
+            ],
+          },
+          {
+            id: 12,
+            title:
+              'Herbalife Hub應用程式尚未在我居住的國家/地區推出。我還能登入並使用活躍生活挑戰者嗎？',
+            answer: [
+              '很遺憾地，如果您不居住在印尼、日本、韓國、馬來西亞、菲律賓、新加坡、臺灣和泰國，您將無法從 Apple App商店和Google Play商店下載 Herbalife Hub應用程式，使用活躍生活挑戰者。',
+            ],
+          },
+        ],
+      },
+      {
+        category: 'Recording and Submitting Your Fitness Activities',
+        questions: [
+          {
+            id: 13,
+            title: '賀寶芙活躍生活挑戰者可以追蹤和紀錄哪些運動？',
+            answer: [
+              '賀寶芙活躍生活挑戰者可以追蹤和紀錄任何基於有距離的活動，主要是跑步/健走、騎自行車和游泳活動。您可以選擇使用App內活動追蹤器，或使用 Apple Health（適用於 iOS）或Google Fit（適用於 Android）應用程式相容支援GPS的穿戴式裝置，與活躍生活挑戰者配對，以無縫順暢地提交您的活動紀錄。',
+            ],
+          },
+          {
+            id: 14,
+            title: '如何追蹤和提交我的跑步/健走、騎自行車和游泳活動紀錄？',
+            answer: [
+              '有三個選項，讓您提交您的跑步/健走、騎自行車和游泳活動紀錄。您可以選擇其中一種方式來提交活動紀錄。我們強烈建議您選擇選項 1 ：App內活動追蹤器，以享有最流暢的體驗。請注意，透過不同的提交選項重複提交同一活動將不計入，並將從您的路跑儀表板中刪除該活動紀錄。',
+              '<span class="underline bold">選項 1：使用App內活動追蹤器</span>',
+              '啟動 Herbalife Hub應用程式，選擇活躍生活挑戰者，然後使App內活動追蹤器，直接紀錄和提交您的跑步/健走和騎自行車活動。只需在「主頁」選擇運動類型，點擊「開始」即可開始活動紀錄，完成後按下「停止」。您提交的活動紀錄將反映在您的路跑儀表板「成就更新」頁面。可以透過點擊位於活躍生活挑戰者右上角的選單，看到「成就更新」頁面。步驟一：啟動您的Herbalife Hub 應用程式並選擇活躍生活挑戰者。',
+              '步驟二： 在「主頁」選擇要紀錄的運動類型。',
+              '步驟三：選擇您希望透過「個人組」或「團體組」參與，並選擇要參與的團隊（如果您參與多個團隊）。',
+              '步驟四：點擊「開始」圖示，開始活動紀錄。確保您在活動期間隨全程攜帶手機。為避免活動紀錄問題，請確保您的GPS 和網路連接穩定。',
+              '步驟五：完成活後，點擊「停止」圖示以結束活動紀錄。您也可以點擊「暫停」圖示，暫時停止活動紀錄，最多10分鐘。',
+              '步驟六：點擊「確認」提交您的活動紀錄。',
+              '步驟七：完成！您的活動結果現已提交並反映在您的路跑儀表板「成就更新」頁面上，可以透過點擊活躍生活挑戰者右上角的選單，看到該更新頁面。',
+              '<span class="underline bold">選項 2：適應相容的健身App和穿戴式裝置</span>',
+              '在配對的健身App和/或穿戴式裝置上紀錄您的活動，以將活動紀錄從 Apple Health或Google Fit自動同步到活躍生活挑戰者，提交您的跑步/健走、騎自行車和游泳的活動紀錄。使用穿戴式裝置開始和結束活動，以紀錄您的活動。確保您的活動紀錄首先同步到Apple Health 或 Google Fit 應用程式，然後每次啟動時都同步到活躍生活挑戰者。您提交的紀錄將反映在您的路跑儀表板「成就更新」頁面上，可以透過點擊位於活躍生活挑戰者右上角的選單，看到該更新頁面。',
+              '步驟一：啟動您的Apple Health App（適用於 iOS 設備使用者）或 Google Fit（適用於 Android 設備使用者）',
+              '步驟二：按照步驟將您首選支援GPS穿戴式裝置追蹤器連結到Apple Health或 Google Fit應用程式。例如Garmin使用者需要登入其 Garmin Connect 帳戶。',
+              '步驟三：啟動您的Herbalife Hub應用程式並選擇活躍生活挑戰者。',
+              '步驟四：點擊位於活躍生活挑戰者右上角的選單，然後選擇「我的路跑儀表板」。',
+              '步驟五：前往「成就更新」頁面，選擇運動類別，然後選擇要將跑步/健走、騎自行車和游泳活動紀分配到的活動類別。您可以隨時重複相同的步驟，來更改選擇。',
+              '步驟六：點選「更新成就」，然後點擊「從我的穿戴式裝置同步」。選擇 Apple Health 或 Google Fit，以同意將活動同步到活躍生活挑戰者。',
+              '步驟七：完成！您的穿戴式裝置現在已透透過 Apple Health 或 Google Fit 應用程式，成功連結到您的活躍生活挑戰者。現在您可以使用支援GPS的穿戴式裝置，紀錄並同步健身活動。',
+              '步驟八：使用與活躍生活挑戰者配對相容的穿戴式裝置紀錄活動。新活動將自動從 Apple Health 或 Google Fit 應用程式同步到活躍生活挑戰者，並將反映在路跑儀表板「成就更新」頁面。透過點擊活躍生活挑戰者右上角的選單，可以看到「成就更新」內容。',
+              `  <div style="margin: 0 40px; overflow-x: auto;">
+              <table class="tg" style="table-layout: fixed; width: 808px">
+                <colgroup>
+                  <col style="width: 105px" />
+                  <col style="width: 106px" />
+                  <col style="width: 120px" />
+                  <col style="width: 149px" />
+                  <col style="width: 167px" />
+                  <col style="width: 161px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="tg-gmla" colspan="6">
+                      <span
+                        style="
+                          font-weight: 700;
+                          font-style: normal;
+                          text-decoration: none;
+                        "
+                        >透過Apple Health或Google Fit 應用程式，使用支援活躍生活挑戰者的穿戴式裝置。</span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-gmla" colspan="6">
+                      <span
+                        style="
+                          font-weight: 700;
+                          font-style: normal;
+                          text-decoration: none;
+                        "
+                        >Apple Health</span
+                      ><br /><span class="dot-item"
+                        >推薦給iOS行動裝置使用者</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tg-2asz">Apple<br />&#x2022; Apple Watch 4 或更新版本</td>
+                    <td class="tg-zd5i">
+                      <span>Fitbit</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Surge</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Iconic</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Charge 5</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Charge 4</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Versa 4</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Versa 3</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Sense 2</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Sense 1</span>
+                    </td>
+                    <td class="tg-zd5i">
+                      <span> Garmin</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Forerunner 系列</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Fenix 系列</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Venu 系列</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Instinct 系列</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Vivoactive 系列</span>
+                      <br />
+                    </td>
+                    <td class="tg-zd5i">
+                      <span>Samsung</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Galaxy Watch 3 or later</span>
+                      <br />
+                      <span class="dot-item"
+                        >&#x2022; Galaxy Watch Active 1 &amp; 2</span
+                      >
+                    </td>
+                    <td class="tg-zd5i">
+                      <span>Xiaomi</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Mi Band 5 or later</span>
+                      <br />
+                      <span class="dot-item"
+                        >&#x2022; Amazfit GTS Mini, GTS 3 or later
+                      </span>
+                      <br />
+                      <span class="dot-item">&#x2022; Amazfit Falxon</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Amazfit T-Rex</span>
+                      <br />
+                    </td>
+                    <td class="tg-ltad">
+                      <span>Oppo</span>
+                      <br />
+                      <span class="dot-item">&#x2022; OPPO Watch</span>
+                      <br />
+                      <span class="dot-item">&#x2022; OPPO Band 2</span>
+                      <br />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tg-gmla" colspan="6">
+                      <span style="font-weight: bold">Google Fit</span><br />Recommended
+                      for Android Mobile Device Users
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">
+                      <span>Google</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Pixel watch</span>
+                      <br />
+                    </td>
+                    <td class="tg-0pky">
+                      <span>Fibit</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Surge</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Iconic</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Charge 5</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Charge 4</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Versa 4</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Versa 3</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Sense 2</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Sense 1</span>
+                      <br />
+                    </td>
+                    <td class="tg-0pky">
+                      <span>Garmin</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Forerunner series</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Fenix series</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Venu series</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Instinct series</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Vivoactive series</span>
+                      <br />
+                    </td>
+                    <td class="tg-0pky">
+                      <span>Samsung</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Galaxy Watch 3 or later</span>
+                      <br />
+                      <span class="dot-item"
+                        >&#x2022; Galaxy Watch Active 1 &amp; 2
+                      </span>
+                    </td>
+                    <td class="tg-0pky">
+                      <span>Xiaomi</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Mi Band 5 or later</span>
+                      <br />
+                      <span class="dot-item"
+                        >&#x2022; Amazfit GTS Mini, GTS 3 or later
+                      </span>
+                      <br />
+                      <span class="dot-item">&#x2022; Amazfit Falxon</span>
+                      <br />
+                      <span class="dot-item">&#x2022; Amazfit T-Rex</span>
+                    </td>
+                    <td class="tg-0lax">
+                      <span> Oppo </span>
+                      <br />
+                      <span class="dot-item">&#x2022; OPPO Watch</span>
+                      <br />
+                      <span class="dot-item">&#x2022; OPPO Band 2</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          `,
+              '<span class="underline bold">選項 3：手動更新</span>',
+              '透過拍攝跑步機路跑儀表板的照片，提交您在跑步機跑步/健走中的活動結果。該照片要顯示距離（公里）、跑步持續時間和平均配速（時間/公里），並顯示有參考日期的裝置。透過選擇活躍生活挑戰者上路跑儀表板上「成就更新」的「手動更新」，手動上傳照片。手動更新建議僅限於跑步機跑步/健走活動。',
+              '步驟一：完成跑步機跑步/健走後，拍攝跑步機路跑儀表板的照片，指示距離 （公里）、跑步持續時間和平均配速（時間/公里），以及顯示活動日期和時間的裝置。',
+              '步驟二：啟動您的Herbalife Hub應用程式並選擇活躍生活挑戰者。',
+              '步驟三：點擊活躍生活挑戰者右上角的選單按鈕，選擇「我的路跑儀表板」。',
+              '步驟四：前往「成就更新」頁面，選擇運動類別，接著選擇要加入活動記錄的活動類別。',
+              '步驟五：點選「更新成就」，然後點選「手動更新」。',
+              '步驟六：輸入詳細的活動資訊，例如日期、距離和持續時間。上傳步驟一拍攝的照片。最多可以提交三張照片作為活動證明。',
+              '步驟七：再次點擊「更新成就」就大功告成！您已提交活動結果，並反映在「我的路跑儀表板」的「成就更新」頁面。',
+            ],
+          },
+          {
+            id: 15,
+            title:
+              '如果我使用App內活動追蹤器紀錄健身活動，會如何計算距離和燃燒熱量？',
+            answer: [
+              '針對距離計算，活躍生活挑戰者會使用您行動裝置中的GPS和地球上空的軌道衛星，判斷您的預估位置，估計每項活動所完成的距離。針對消耗熱量的計算，活躍生活挑戰者使用您的體重和身高等數據，以及您紀錄的活動距離來估計燃燒熱量。每項活動燃燒熱量的計算需要考量速度、體重和運動時間。納入數值計算，再乘以比例係數，可以算出燃燒熱量。',
+            ],
+          },
+          {
+            id: 16,
+            title:
+              '為什麼使用App內活動追蹤器紀錄之前，會要求我輸入身高和體重？',
+            answer: [
+              '活躍生活挑戰者的追蹤器，使用您的身高和體重資訊，計算每項活動預估的燃燒熱量。為了更準確估計燃燒熱量，我們建議您輸入身高和體重。您也可以跳過此步驟，選擇不提供。',
+            ],
+          },
+          {
+            id: 17,
+            title:
+              '除了跑步/健走、騎自行車和游泳活動之外，我還可以使用手動更新提交其他健身活動嗎？我還可以從其他健身應用程式或穿戴式裝置上傳螢幕截圖嗎？',
+            answer: [
+              '活躍生活挑戰者目前僅可用於紀錄跑步/健走、騎自行車和游泳。我們建議只有針對GPS無法追蹤的活動使用手動更新，您可以提交合理的活動證明。例如，在跑步機跑步/健走時，您可以提交跑步機儀表板或跑步機應用程式螢幕截圖的照片，顯示距離（公里）、跑步持續時間和平均配速（時間/公里），以及顯示有活動日期和時間的裝置。',
+            ],
+          },
+          {
+            id: 18,
+            title: '我沒有任何與活躍生活挑戰者相容的穿戴式裝置。我該怎麼做？',
+            answer: [
+              '活躍生活挑戰者共有三個不同的選項，您可以用來選擇、紀錄和提交您的跑步/健走、騎自行車和游泳活動紀錄。如果您沒有可以與活躍生活挑戰者同步的相容穿戴式裝置，請使用 Q12 中列出的其他兩個提交選項，來紀錄並提交您的跑步/健走、騎自行車和游泳活動。',
+            ],
+          },
+          {
+            id: 19,
+            title: '每次提交活動有最短距離限制嗎？',
+            answer: [
+              '是的，每次跑步/健走、騎自行車或游泳活動必須至少達到200公尺，才能列入提交的活動紀錄。',
+            ],
+          },
+          {
+            id: 20,
+            title: '我可以提交的活動數目有限制嗎？',
+            answer: ['沒有，可以提交的活動數目沒有限制。'],
+          },
+          {
+            id: 21,
+            title: '如何使用活躍生活挑戰者追蹤我的健身進度？',
+            answer: [
+              '點擊位於活躍生活挑戰者右上角的選單，接著選擇「我的路跑儀表板」。您能夠查看您的健身進度統計數據、成就和電子徽章。',
+            ],
+          },
+          {
+            id: 22,
+            title: '什麼是不合格的活動？',
+            answer: [
+              '任何使用交通設備或車輛（火車、公車、汽車、摩托車等）的活動紀錄和重複的活動，將不列入您的路跑儀表板成就。任何異常/接受輔助和重複的活動紀錄，都將在您的路跑儀表板成就更新頁面上標記為「不合格」。',
+            ],
+          },
+          {
+            id: 23,
+            title: '我收到了紀錄不合格的通知。為什麼會這樣？',
+            answer: [
+              '任何可疑的運動記錄，例如多次不合理的嘗試超速或重複提交的活動，系統都會自動檢測而且不列入採計。請確保您在紀錄跑步/健走、騎自行車或游泳活動時，沒有使用任何形式的交通設備或車輛。不合格的紀錄提交，將在您的路跑儀表板成就更新頁面上被標記，而且不計入總累積距離。我們強烈建議您以合理的速度和配速，提交您的活動紀錄。',
+            ],
+          },
+          {
+            id: 24,
+            title: '如果我認為活動紀紀錄不列入採計其實是有錯誤的，我該怎麼做？',
+            answer: [
+              '您可以在沒有輔助的情況下以合理的速度和配速跑步/健走、騎自行車和游泳，然後重新提交紀錄。或者您可以在活躍生活挑戰者上聯繫您的團隊隊長，更新您的成就。',
+            ],
+          },
+        ],
+      },
+      {
+        category: 'All about Active Lifestyle Teams',
+        questions: [
+          {
+            id: 25,
+            title: '誰可以在活躍生活挑戰者上建立團隊？',
+            answer: [
+              '只有賀寶芙健康事業會員或優惠顧客才能在活躍生活挑戰者上建立跑步/健走、騎自行車或游泳團隊。',
+            ],
+          },
+          {
+            id: 26,
+            title: '如何在活躍生活挑戰者上建立團隊？',
+            answer: [
+              '賀寶芙健康事業會員和優惠顧客能夠透過下載 Herbalife Hub 應用程式，並使用您的賀寶芙健康事業會員或優惠顧客ID和密碼登入，建立跑步/健走、騎自行車或游泳等運動團隊。選擇活躍生活挑戰者，然後前往「團隊」頁面，點擊「建立團隊」。只需完成所有必填資訊，點擊「建立團隊」，即可建立新的團隊。',
+            ],
+          },
+          {
+            id: 27,
+            title: ' 我可以建立和加入多少個團隊？',
+            answer: [
+              '賀寶芙健康事業會員和優惠顧客可以建立和加入的團隊數目沒有限制。如果您不是賀寶芙健康事業會員也不是優惠顧客，您可以透過賀寶芙健康事業會員的邀請，加入多個運動團隊。',
+            ],
+          },
+          {
+            id: 28,
+            title: '我可以加入活躍生活挑戰者中任何的團隊嗎？',
+            answer: [
+              '如果您在Herbalife Hub應用程式沒有帳戶，則團隊隊長/助理可透過電子郵件邀請或發送給您專屬團隊代碼，邀請您加入活躍生活挑戰者的運動團隊。關於收到電子郵件邀請或專屬團隊代碼，請參閱Q1瞭解如何登入並加入團隊。針對Herbalife Hub應用程式的現有使用者，您可以從團隊隊長那裡取得團隊專屬代碼，並在活躍生活挑戰者的「團隊」頁面，輸入團隊代碼後加入團隊。',
+            ],
+          },
+          {
+            id: 29,
+            title: '我是否可以建立或加入與我不同國家/地區成員組成的團隊？',
+            answer: [
+              '不可以，團隊的所有成員，包括團隊隊長/助理，都需要屬於同一國家/地區。',
+            ],
+          },
+          {
+            id: 30,
+            title: '團隊成員人數是否有限制？',
+            answer: [
+              '沒有，團隊的成員人數沒有限制。至少需要有一名團隊成員才能建立團隊。',
+            ],
+          },
+          {
+            id: 31,
+            title: '如何任命團隊助理？團隊可以有的團助理數目是否有限制？',
+            answer: [
+              '如果您是團隊隊長，您可以任命多名團隊助理來協助管理團隊。只需在活躍生活挑戰者「團隊」頁面，擇團隊，然後點擊「管理團隊」。選擇您希望指定為團隊助理的成員，然後點擊「指派成為助理」。團隊的助理人數沒有限制。',
+            ],
+          },
+          {
+            id: 32,
+            title: '如何邀請更多人加入我的團隊？',
+            answer: [
+              '如果您是團隊隊長/助理，您能夠邀請其他賀寶芙健康事業會員、優惠顧客和顧客加入您的團隊，加入活躍生活挑戰者。只需在活躍生活挑戰者「團隊」頁面，擇團隊，然後點擊「管理團隊」。點擊「加入成員」就可以發送電子郵件邀請，或透過其他簡訊App共享專屬團隊代碼。',
+            ],
+          },
+          {
+            id: 33,
+            title: '我是團隊隊長/助理。我可以邀請任何人加入我的團隊嗎？',
+            answer: [
+              '是的，您可以透過應用程式發送電子郵件邀請或與分享您專屬團隊代碼，邀請對方加入您在活躍生活挑戰者的團隊。',
+            ],
+          },
+          {
+            id: 34,
+            title: '不是賀寶芙健康事業會員或賀寶芙優惠顧客也可以加入團隊嗎？',
+            answer: [
+              '是的，不是賀寶芙健康事業會員也不是優惠顧客，也可以加入活躍生活挑戰者的團隊。條件是要獲得擔任團隊隊長/助理的賀寶芙健康事業會員的電子郵件邀請或專屬團隊代碼，而且要同時接受適用的條款和條件。若您收到電子郵件邀請或專屬團隊代碼，請參閱Q1瞭解如何登入並加入團隊。',
+            ],
+          },
+          {
+            id: 35,
+            title: '我可以離開現在的團隊並加入另一個團隊嗎？',
+            answer: [
+              '是的，如果您決定好是可以離開目前的團隊。只需前往活躍生活挑戰者的「團隊」頁面，選擇團隊，然後點擊右上角的3點圖示。點擊「離開團隊」並確認。請留意，您能夠加入多個運動團隊，不需要只屬於單一團隊。要加入另一個團隊，您需要獲得團隊隊長的電子郵件邀請或專屬團隊代碼。',
+            ],
+          },
+          {
+            id: 36,
+            title:
+              '我留意到有一名我們不認識的人不小心加入了我們的團隊。我們該怎麼做？',
+            answer: [
+              '請聯繫您的團隊隊長/助理，與對方聯繫並提出相應建議。您的團隊隊長/助理能夠透過「管理團隊」功能移除該成員。',
+            ],
+          },
+          {
+            id: 37,
+            title: '我的團隊隊長/助理和隊員可以追蹤我的健身進度嗎？',
+            answer: [
+              '是的，您的團隊隊長/助理和隊員能夠查看您在團隊下分配和提交的活動，包括距離、估計燃燒熱量以及其他相關資訊。',
+            ],
+          },
+          {
+            id: 38,
+            title: '我提交的所有健身活動都會為我所屬的所有團隊做出貢獻嗎？',
+            answer: [
+              '不是的。每項提交的活動只能為您所屬的一個團隊做出貢獻。在活動紀錄開始之前，系統會要求您選擇要將分配的活動類別和團隊。',
+            ],
+          },
+        ],
+      },
+      {
+        category: 'All about Active Lifestyle Challenges',
+        questions: [
+          {
+            id: 39,
+            title: '誰可以在活躍生活挑戰者上發起挑戰？',
+            answer: [
+              '只有賀寶芙健康事業會員或優惠顧客才能在活躍生活挑戰者上建立跑步/健走、騎自行車或游泳挑戰。',
+            ],
+          },
+          {
+            id: 40,
+            title: ' 如何在活躍生活挑戰者上建立挑戰？',
+            answer: [
+              '賀寶芙健康事業會員和優惠顧客下載Herbalife Hub應用程式，並使用賀寶芙健康事業會員或優惠顧客ID和密碼登入，即可建立跑步/健走、騎自行車或游泳相關的多項挑戰。選擇活躍生活挑戰者，前往「挑戰」頁面，然後點擊「建立挑戰」。只需完成所有必填資訊，點擊「建立新挑戰」，即可發起新的挑戰。',
+            ],
+          },
+          {
+            id: 41,
+            title: '我可以發起多少個挑戰？',
+            answer: [
+              '賀寶芙健康事業會員和優惠顧客可以發起的挑戰數目沒有限制。',
+            ],
+          },
+          {
+            id: 42,
+            title: '誰可以參加我發起的挑戰？',
+            answer: [
+              '所有活躍生活挑戰者的賀寶芙健康事業會員和優惠顧客都將能夠查看並加入挑戰。若是受邀的顧客，但不是賀寶芙健康事業會員或優惠顧客，您可以參加您的團隊隊長為團隊所報名的挑戰。請透過您的團隊隊長讓您加入挑戰。',
+            ],
+          },
+          {
+            id: 43,
+            title: '我如何參加活躍生活挑戰者的挑戰？',
+            answer: [
+              '要加入活躍生活挑戰者的團體組挑戰，只需團隊隊長/助理報名並加入團體組挑戰。若您不是團隊隊長/助理，請與您的團隊隊長/助理討論您有興趣參加的團體組挑戰，並要求他們幫您加入團體組挑戰。團隊隊長/助理只需點擊「加入挑戰」按鈕，並選擇希望加入的團隊，就可以讓所有隊員加入該挑戰。',
+            ],
+          },
+          {
+            id: 44,
+            title: '我可以參加活躍生活挑戰者提供的任何挑戰嗎？',
+            answer: [
+              '賀寶芙健康事業會員和優惠顧客能夠參加個人組類別的任何挑戰。擔任團隊隊長/助理的賀寶芙健康事業會員和優惠顧客能夠參加團體組類別的任何挑戰。團隊隊長加入並選擇團體組挑戰後，所有團隊隊員都可以透過隊長把大家加入，參與團體組挑戰。對於顧客（非健康事業會員），請與您的團隊隊長/助理討論，讓您加入團體組挑戰。',
+            ],
+          },
+          {
+            id: 45,
+            title: '我可以在挑戰進行期間加入挑戰嗎？',
+            answer: ['請與您的團隊隊長/助理討論，讓您在挑戰期間能加入挑戰。'],
+          },
+          {
+            id: 46,
+            title:
+              '作為團隊隊長/助理，如果我想在挑戰期間讓隊員加入挑戰，我該怎麼做？',
+            answer: ['您可以讓正在參加挑戰的隊員加到您的團隊中。'],
+          },
+          {
+            id: 47,
+            title: '我不是團隊隊長。我還是能參加團隊組挑戰嗎？',
+            answer: [
+              '要加入團隊組的挑戰，您需要聯繫您的團隊隊長/助理，請他/她報名該團體組挑戰並讓您加入。一旦團隊隊長加入並選擇團體組挑戰，團隊中每名隊員都可以參與。',
+            ],
+          },
+          {
+            id: 48,
+            title: '我可以參加其他國家/地區的挑戰嗎？',
+            answer: ['不可以，您只能根據您居住和參與的國家/地區參加挑戰。'],
+          },
+          {
+            id: 49,
+            title: '我想要參加活躍生活挑戰者團體組類別的挑戰。我該怎麼做？',
+            answer: [
+              '若您不是活躍生活挑戰者上註冊團隊的團隊隊長/助理，請與您的隊長/助理聯繫，請他/她報名該團體組挑戰並讓您加入。若您是活躍生活挑戰者上註冊團隊的團隊隊長/助理，請前往活躍生活挑戰者的「挑戰」頁面，點擊您想要參加的挑戰。點擊「加入挑戰」，按照步驟加入挑戰。',
+            ],
+          },
+          {
+            id: 50,
+            title: '我如何得知活躍生活挑戰者中特定挑戰的相關要求？',
+            answer: [
+              '前往活躍生活挑戰者的「挑戰」頁面，點擊您感興趣的特定挑戰。您可以在「一般資訊」頁面上查看完成挑戰的要求，以及挑戰持續時間、推薦的賀寶芙產品和獎勵等資訊。',
+            ],
+          },
+          {
+            id: 51,
+            title: '完成挑戰後，我能獲得賀寶芙的獎勵嗎？',
+            answer: [
+              '挑戰」頁面會列出該挑戰發起者所提供的獎勵，發起者可能是賀寶芙健康事業會員或優惠顧客。',
+            ],
+          },
+          {
+            id: 52,
+            title: '我如何獲得挑戰中列出的獎勵？',
+            answer: [
+              '如果您有資格獲得挑戰列出的獎勵，您的團隊隊長/助理會與您聯繫。',
+            ],
+          },
+          {
+            id: 53,
+            title:
+              '我如何知道我是否有資格獲得獎勵；如果沒有收到獎勵，我該怎麼做？',
+            answer: [
+              '挑戰結果將在挑戰結束時公佈。您可以前往活躍生活挑戰者的「挑戰」頁面，點擊挑戰，前往「成就」頁面查看結果。如果您有資格獲得挑戰列出的獎勵，您的團隊隊長/助理會與您聯繫。',
+            ],
+          },
+          {
+            id: 54,
+            title: '我是否一定要購買挑戰中列出的推薦賀寶芙產品才能參加挑戰？',
+            answer: [
+              '挑戰列出的推薦賀寶芙產品，目的使讓您有更好的參加經驗。推薦的賀寶芙產品不是強制購買，但是這些產品可以支持您健康活躍的生活。',
+            ],
+          },
+          {
+            id: 55,
+            title: '我如何瞭解更多資訊或購買挑戰推薦的賀寶芙產品？',
+            answer: [
+              '您可以團隊隊長聯繫，瞭解更多資訊或購買挑戰推薦的賀寶芙產品。或是您也可以前往 https://www.herbalife.com/zh-tw/u/category/all-products ，瞭解更多資訊。',
+            ],
+          },
+          {
+            id: 56,
+            title: '我如何在活躍生活挑戰者上與其他使用者互動？',
+            answer: [
+              '您可以使用團隊聊天功能，與團隊成員互動。要建立團隊，請前往活躍生活挑戰者的「團隊」頁面，選擇您的團隊。點擊右上角的聊天圖示，就可以與團隊成員聊天。您還可以查看活躍生活挑戰者的「貼文通知」頁面，可以分享貼文、按讚、留言或分享其他使用者的貼文。',
+            ],
+          },
+        ],
+      },
+      {
+        category: 'All about Active Lifestyle Community',
+        questions: [
+          {
+            id: 57,
+            title: '如何查看其他人和其他團隊的進度？',
+            answer: [
+              '您可以透過活躍生活挑戰者的「排行榜」頁面，搜尋其他人或其他團隊的進度。排行榜的功能基於您居住和參與的國家/地區，您的應用程式不會出現其他國家/地區的排行榜。',
+            ],
+          },
+          {
+            id: 58,
+            title: '什麼是電子徽章，在哪裡可以查看？',
+            answer: [
+              '電子徽章是虛擬徽章，解鎖後，您可以從活躍生活挑戰者下載並儲存在裝置上。請留意，我們不會頒發實體徽章。點擊活躍生活挑戰者右上角的選單按鈕，選擇「我的路跑儀表板」，就可以在「電子徽章」頁面查看您得到的個人電子徽章。要查看團隊電子徽章，請前往活躍生活挑戰者的「團隊」頁面，選擇您的團隊，然後點擊「電子徽章」。',
+            ],
+          },
+          {
+            id: 59,
+            title: '如何鼓勵我的團隊成員維持健運動目標？',
+            answer: [
+              '您可以使用團隊聊天功能鼓勵您的團隊成員。要建立團隊，請前往活躍生活挑戰者的「團隊」頁面，選擇您的團隊。點擊右上角的聊天圖示，與團隊成員分享鼓勵的訊息。如果您是團隊隊長/助理，您還可以使用活躍生活挑戰者的表揚或提醒功能，親自鼓勵每位團隊成員。前往活躍生活挑戰者的「團隊」頁面，選擇您的團隊，進到「成就更新」頁面。點擊團隊成員的姓名，選擇表揚/提醒訊息。按照步驟把個人化訊息發送推播給您所選擇的團隊成員。',
+            ],
+          },
+          {
+            id: 60,
+            title:
+              '我可以在「貼文通知」的頁面分享貼文嗎？活躍生活挑戰者的每個人都可以看到該貼文嗎？',
+            answer: [
+              '是的，活躍生活挑戰者所有的使用者都可以在「貼文通知」頁面分享貼文。您可以選擇在「全國」頁面上貼文，所在國家/地區的所有使用者都看得到您的貼文，或者在「團隊」頁面，就只有您的團隊成員才看得到您的貼文。您還可以選擇在您的「貼文牆」發文，就只有您自己看得到。',
+            ],
+          },
+          {
+            id: 61,
+            title:
+              '我看到來自另一名使用者的有趣貼文。我可以在我的社群媒體上分享該貼文嗎？',
+            answer: [
+              '可以，您可以點擊「分享」按鈕，並選擇「更多選項」，就可以透過其他社群媒體或簡訊App，分享其他使用者的貼文。',
+            ],
+          },
+          {
+            id: 62,
+            title: '「貼文通知」頁面有不合宜的貼文內容。我該怎麼做？',
+            answer: [
+              '您可以點擊貼文右上角的旗幟圖示，舉報不當貼文。我們會審查不當貼文，並適時採取適當的行動。除非我們需要您提供進一步資訊，否則您不會收到我們的回覆。',
+            ],
+          },
+          {
+            id: 63,
+            title: '我需要隨身攜帶手機來紀錄我的活動嗎？',
+            answer: [
+              '如果您選擇使用App內活動追蹤器直接紀錄您的跑步/健走或騎車活動，您就需要隨身攜帶手機裝置追蹤該活動。您可以關閉手機螢幕，但請確保手機開啟定位功能，而且在關閉手機下App仍保持活躍狀態。如果您透過 Apple Health或Google Fit App，使用支援GPS的相容穿戴式裝置紀錄您的跑步活動，再同步到活躍生活挑戰者，請參閱您的穿戴式裝置供應商和Apple Health或Google Fit的操作說明，瞭取得更多技術資訊。',
+            ],
+          },
+          {
+            id: 64,
+            title: '我的應用程式突然關閉/當機。我該怎麼做？',
+            answer: [
+              '首先請嘗試關閉應用程式並重新啟動。這應該會帶您回到「主頁面」。如果問題仍然存在，請透過<電子郵件地址>與我們聯繫。',
+            ],
+          },
+          {
+            id: 65,
+            title:
+              '如使用App內活動追蹤器時，如何確保良好的 GPS訊號以獲得最準確的活動紀錄？',
+            answer: [
+              'GPS使用行動裝置中的晶片和地球上空的軌道衛星，來判斷您的預估位置。為確保良好的GPS訊號，以獲得最準確的跑步/健走紀錄，以下是相關建議。',
+              '<span class="dot-item">&#x2022; 避免同時使用活躍生活挑戰者和GPS 應用程式。</span>',
+              '<span class="dot-item">&#x2022; 盡可能無阻礙地手持或安放您的設備，而不是放在包包深處。</span>',
+              '<span class="dot-item">&#x2022; 避免地下隧道、地下人行道或建築物內可能阻礙行動裝置發送和接收GPS訊號的環境。</span>',
+              '<span class="dot-item">&#x2022; 確保遠離高樓或茂密森林，有清楚的天空視野，以獲得最佳的GPS訊號。</span>',
+              '<span class="dot-item">&#x2022; 對於特定裝置，請諮詢您的設備商家進行GPS故障排除。</span>',
+            ],
+          },
+          {
+            id: 66,
+            title: '對於特定裝置，請諮詢您的設備商家進行GPS故障排除。',
+            answer: [
+              '訊號遺失前和訊號遺失後的追蹤點，就像任何其他兩個後連續點的處理，並對應到一條直線，可能會導致您的活動紀錄距離不準確，或不符合您在地圖上所規劃的路線。如果您失去GP訊號超過10分鐘，您的活動將自動保存並提交。要獲得良好的GPS訊號以獲得最準確的活動紀錄，請參閱Q64提供的建議。',
+            ],
+          },
+          {
+            id: 67,
+            title:
+              '我和團隊成員在同一條路線上一起進行相同的活動，並使用App內活動追蹤器紀錄了我們的跑步活動。為什麼我們紀錄到的的距離卻不同？',
+            answer: [
+              'GPS使用行動裝置中的晶片和地球上空的軌道衛星來判斷您的預估位置。可能因裝置而異，導致您的團隊成員和您之間雖然路線一樣，紀錄到的活動距離卻略有不同。',
+            ],
+          },
+          {
+            id: 68,
+            title:
+              '為什麼即便我每次都在同一條路線上運動，App內活動追蹤器紀錄的活動距離也會有所不同？',
+            answer: [
+              'GPS使用行動裝置中的晶片和地球上空的軌道衛星來判斷您的預估位置，所以即使您的路線相同，也可能導致您的活動距離略有不同。要獲得良好的GPS訊號以獲得最準確的活動紀錄，請參閱Q64提供的建議。',
+            ],
+          },
+          {
+            id: 69,
+            title:
+              '我可以在使用活躍生活挑戰者的同時使用其他追蹤應用程式紀錄我的活動嗎？',
+            answer: [
+              '活動提交只能透過問題14所列出的三個選項進行。我們強烈建議每項活動的紀錄僅使用一個追蹤應用程式，避免任何重複提交，否則將不列入紀錄採計。',
+            ],
+          },
+          {
+            id: 70,
+            title:
+              '我可否將活躍生活挑戰者與其他跑步應用程式同步，如Strava、Nike Run Club、Adidas Running、Map My Run、RunKeeper等，以提交我的活動結果？',
+            answer: [
+              '很遺憾，其他無法與Apple Health或 Google Fit App同步的跑步應用程式，都無法與活躍生活挑戰者相容。您可以直接用App內活動追蹤器紀錄您的活動，以獲得最順暢的體驗。或者您可以參考Q14列出支援的穿戴式裝置清單。',
+            ],
+          },
+          {
+            id: 71,
+            title:
+              '我的活動紀錄遺失了，而且沒有紀錄在「我的路跑儀表板」上。我該怎麼做？',
+            answer: [
+              '首先，如果您直接使用App內活動追蹤器紀錄活動，請確保您已按一下「開始」按鈕。重新啟動應用程式可以刷新頁面，讓所有活動自動同步。如果您使用配對的相容支援GPS的穿戴式裝置紀錄您的跑步/健走，透過Apple Health或GoogleFit同步到活躍生活挑戰者，請先學人該活動已同步到Apple Health或Google Fit應用程式。接下來，再次啟動活躍生活挑戰者，同步Apple Health或Google Fit應用程式中的所有活動。如果問題仍然存在，請透過 <電子郵件地址>與我們聯繫。',
+            ],
+          },
+          {
+            id: 72,
+            title: '應用程式沒有追蹤我的所在位置。我該怎麼做？',
+            answer: [
+              '針對該應用程式，您需要確保啟動手機定位服務，並選擇「隨時開啟」。請在應用程式右上角選單按鈕下，點擊「設定」，確保開啟應用程式的定位服務。',
+            ],
+          },
+          {
+            id: 73,
+            title: '我可以在哪裡可查看到所有收到的應用程式通知？',
+            answer: [
+              '點擊位於活躍生活挑戰者右上角的選單按鈕，然後選擇「通知」。您就能夠查看所有應用程式通知，並按照不同通知類別標示。',
+            ],
+          },
+        ],
+      },
+    ];
+    let faq = document.querySelector('.faq');
+
+    const htmlexploreChoose = DATA.map((item) => {
+      const { questions, category } = item;
+
+      const questionsHTML = questions
+        .map((question) => {
+          const { id, title, answer } = question;
+          const answersHTML = answer.map((value) => `<p>${value}</p>`).join('');
+          return `
+                <details class="accordion">
+                  <summary class="accordion-btn">${id}. ${title}</summary>
+                  <div class="accordion-content">
+                    ${answersHTML}
+                  </div>
+                </details>
+              `;
+        })
+        .join('');
+
+      return `
+            <div class="category">
+              <div class="category-title">${category}</div>
+              <div class="category-container">
+                ${questionsHTML}
+              </div>
+            </div>
+          `;
+    });
+
+    faq.innerHTML = htmlexploreChoose.join('');
+  </script>
+</html>
