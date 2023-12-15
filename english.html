@@ -1,119 +1,26 @@
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <style>
-      * {
+      :root {
+        --primary-color: #266432;
+        --h1-font-family-primary: "H1Font";
+        --h1-font-family-secondary: "H1WalsheimFont";
+      }
+
+      *,
+      *::after,
+      *::before {
         box-sizing: border-box;
-      }
-
-      .category-title {
-        font-size: 24px;
-        color: #266431;
-        font-weight: 700;
-        padding: 10px 0;
-        line-height: 1.2;
-      }
-
-      details summary {
-        list-style-type: '';
+        padding: 0;
+        margin: 0;
+        font-family: var(--h1-font-family-primary);
       }
 
       p {
-        margin: 0 0 10px;
-      }
-
-      .accordion {
-        .accordion-btn {
-          position: relative;
-          border: none;
-          padding: 20px 30px 20px 20px;
-          text-align: left;
-          cursor: pointer;
-          font-weight: bold;
-          border-bottom: 0.25px solid;
-          list-style-image: none;
-
-          &::-webkit-details-marker {
-            background-color: none;
-            color: transparent;
-            background-color: red;
-          }
-
-          &::after {
-            content: '+';
-            position: absolute;
-            top: 50%;
-            right: -5px;
-            font-size: 24px;
-            font-family: monospace;
-            width: 35px;
-            height: 35px;
-            text-align: center;
-
-            color: #266431;
-            transform: translate(0%, -50%);
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            padding-bottom: 4px;
-            padding-left: 2px;
-            justify-content: center;
-            font-weight: normal;
-            transition: all 0.3s ease;
-          }
-        }
-
-        .accordion-content {
-          background-color: #ffffff;
-          padding-bottom: 10px;
-          margin-top: 10px;
-          border-bottom: 0.25px solid;
-          padding: 15px 25px 15px 15px;
-
-          > p {
-            padding: 0px 30px;
-          }
-        }
-
-        &[open] {
-          .accordion-btn {
-            background-color: #e5e5e5;
-          }
-
-          .accordion-btn::after {
-            content: '\2212';
-            font-size: 24px;
-            color: #266431;
-          }
-
-          summary ~ * {
-            overflow: hidden;
-            animation: heightUp 1s ease-in-out;
-          }
-        }
-      }
-
-      /* Mobile */
-      @media screen and (max-width: 739px) {
-        .category-title {
-          font-size: 16px;
-        }
-
-        .accordion {
-          &[open] {
-            .accordion-btn {
-              background-color: #e5e5e5;
-            }
-          }
-          .accordion-content {
-            > p {
-              padding: 0px 20px;
-            }
-          }
-        }
-
-        .category {
-          margin-bottom: 40px;
-        }
+        margin: 0 !important;
       }
 
       .bold {
@@ -128,10 +35,6 @@
         text-decoration-line: underline;
       }
 
-      .category {
-        margin-bottom: 60px;
-      }
-
       table.tg {
         width: 100% !important;
       }
@@ -141,12 +44,10 @@
         border-spacing: 0;
         margin: 0px auto;
       }
-
       .tg td {
         border-color: black;
         border-style: solid;
         border-width: 1px;
-        font-family: Arial, sans-serif;
         font-size: 14px;
         overflow: hidden;
         padding: 10px 5px;
@@ -156,7 +57,6 @@
         border-color: black;
         border-style: solid;
         border-width: 1px;
-        font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: normal;
         overflow: hidden;
@@ -171,7 +71,6 @@
       }
       .tg .tg-2asz {
         border-color: inherit;
-        font-family: Impact, Charcoal, sans-serif !important;
         font-size: 14px;
         text-align: left;
         vertical-align: top;
@@ -208,866 +107,1034 @@
       }
 
       .faq {
-        margin: 0 20px;
+        margin: 20px 0;
+
+        details summary {
+          list-style-type: "";
+        }
+
+        .category {
+          margin-bottom: 30px;
+        }
+
+        .category-title {
+          font-size: 24px;
+          color: var(--primary-color);
+          font-weight: 700;
+          padding: 10px 0;
+          line-height: 1.2;
+          user-select: none;
+        }
+
+        .accordion {
+          .accordion-btn {
+            position: relative;
+            border: none;
+            padding: 20px 40px 20px 20px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 0.25px solid;
+            list-style-image: none;
+            user-select: none;
+
+            &::-webkit-details-marker {
+              background-color: none;
+              color: transparent;
+              background-color: red;
+            }
+
+            &::after {
+              content: "+";
+              position: absolute;
+              top: 50%;
+              right: 10px;
+              font-size: 24px;
+              width: 35px;
+              height: 35px;
+              text-align: center;
+
+              color: #266431;
+              transform: translate(0%, -50%);
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              padding-bottom: 4px;
+              padding-left: 2px;
+              justify-content: center;
+              font-weight: normal;
+              transition: all 0.3s ease;
+            }
+          }
+
+          .accordion-content {
+            background-color: #ffffff;
+            padding: 10px 30px;
+            border-bottom: 0.25px solid;
+
+            > p {
+              padding: 6px 0px !important;
+            }
+          }
+
+          &[open] {
+            .accordion-btn {
+              background-color: #e5e5e5;
+            }
+
+            .accordion-btn::after {
+              content: "\2212";
+              font-size: 24px;
+              color: #266431;
+            }
+
+            summary ~ * {
+              overflow: hidden;
+              animation: heightUp 1s ease-in-out;
+            }
+          }
+        }
       }
 
-      @keyframes heightUp {
-        0% {
-          max-height: 0;
+      .frequently-asked-questions {
+        background-color: #41a047;
+        padding: 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .frequently-asked-questions-title {
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.2;
+        user-select: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .frequently-asked-questions-image {
+        height: 50px;
+        width: 50px;
+        border: 1px solid;
+      }
+
+      .frequently-asked-questions-image {
+        position: absolute;
+        right: 20px;
+      }
+
+      @media (max-width: 640px) {
+        .faq {
+          .category-title {
+            font-size: 20px;
+            padding: 10px 25px 10px 15px;
+          }
+
+          .accordion {
+            &[open] {
+              .accordion-btn {
+                background-color: #e5e5e5;
+              }
+            }
+          }
+
+          .category {
+            margin-bottom: 40px !important;
+          }
         }
-        100% {
-          max-height: 2000px;
+      }
+
+      .table-title {
+        font-weight: 700;
+        font-style: normal;
+        text-decoration: none;
+      }
+
+      .container-faq {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      @media (min-width: 576px) {
+        .container-faq {
+          max-width: 540px;
+        }
+
+        .frequently-asked-questions {
+          padding: 20px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container-faq {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .frequently-asked-questions {
+          padding: 40px 100px;
+        }
+
+        .frequently-asked-questions-title {
+          font-size: 30px;
+          line-height: 1.2;
+        }
+
+        .frequently-asked-questions-image {
+          position: absolute;
+          right: 100px;
+          top: 10px;
+        }
+
+        .frequently-asked-questions-image {
+          height: 160px;
+          width: 160px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="faq"></div>
+    <div class="frequently-asked-questions">
+      <div class="frequently-asked-questions-title">
+        Frequently Asked Questions
+      </div>
+      <div class="frequently-asked-questions-image">
+        <img src="logo" alt="logo" />
+      </div>
+    </div>
+    <div class="container-faq"><div class="faq"></div></div>
   </body>
 
   <script>
     const DATA = [
       {
-        category: 'General Login Information',
+        category: "General Login Information",
         questions: [
           {
             id: 1,
             title:
-              'How do I log in to use the Herbalife Active Lifestyle Tracker?',
+              "How do I log in to use the Herbalife Active Lifestyle Tracker?",
             answer: [
-              'Active Lifestyle Tracker is a Herbalife exclusive fitness activity tracker available for use for all our Herbalife Independent Distributors, Preferred Customers, and their invited customers.',
-              'Simply download the Herbalife Hub App from your Apple App Store or Google Play Store and log in with your Herbalife Independent Distributor ID or Preferred Customer ID and password and select the Active Lifestyle Tracker.',
-              'For  the customers(non-Herbalife Distributors) of the Herbalife Distributors and Preferred Customers, log in with your email and default password found in the email invitation sent to you or click “Sign up” to create an account on the Herbalife Hub App using the unique Team Code shared by a Herbalife Independent Distributor to access the Active Lifestyle Tracker.',
+              "Active Lifestyle Tracker is a Herbalife exclusive fitness activity tracker available for use for all our Herbalife Independent Distributors, Preferred Customers, and their invited customers.",
+              "Simply download the Herbalife Hub App from your Apple App Store or Google Play Store and log in with your Herbalife Independent Distributor ID or Preferred Customer ID and password and select the Active Lifestyle Tracker.",
+              "For  the customers(non-Herbalife Distributors) of the Herbalife Distributors and Preferred Customers, log in with your email and default password found in the email invitation sent to you or click “Sign up” to create an account on the Herbalife Hub App using the unique Team Code shared by a Herbalife Independent Distributor to access the Active Lifestyle Tracker.",
             ],
           },
           {
             id: 2,
-            title: 'Who can use Herbalife Active Lifestyle Tracker?',
+            title: "Who can use Herbalife Active Lifestyle Tracker?",
             answer: [
-              'Herbalife Active Lifestyle Tracker is a Herbalife exclusive fitness activity tracker available for use for all our Herbalife Independent Distributors, Preferred Customers, and their invited customers (non-Herbalife Distributors).',
+              "Herbalife Active Lifestyle Tracker is a Herbalife exclusive fitness activity tracker available for use for all our Herbalife Independent Distributors, Preferred Customers, and their invited customers (non-Herbalife Distributors).",
             ],
           },
           {
             id: 3,
             title:
-              'I am not a Herbalife Independent Distributor or Preferred Customer. Can I use the Active Lifestyle Tracker too?',
+              "I am not a Herbalife Independent Distributor or Preferred Customer. Can I use the Active Lifestyle Tracker too?",
             answer: [
-              'Yes, you can use Herbalife Active Lifestyle Tracker as long as you receive the exclusive email invitation or unique Team Code to join the community on Active Lifestyle Tracker from a Herbalife Independent Distributor and accept the applicable Terms & Conditions.',
+              "Yes, you can use Herbalife Active Lifestyle Tracker as long as you receive the exclusive email invitation or unique Team Code to join the community on Active Lifestyle Tracker from a Herbalife Independent Distributor and accept the applicable Terms & Conditions.",
             ],
           },
           {
             id: 4,
             title:
-              'As a customer (non-Herbalife Distributor), how do I log in and access the Active Lifestyle Tracker if I have received an email invitation from an Independent Herbalife Independent Distributor?',
+              "As a customer (non-Herbalife Distributor), how do I log in and access the Active Lifestyle Tracker if I have received an email invitation from an Independent Herbalife Independent Distributor?",
             answer: [
-              'Download the Herbalife Hub App from your Apple App Store or Google Play Store. At the login page, enter the email address in which you received the email invitation as the Login ID and the default password found in the email invitation. You will be asked to reset the password and complete the One-Time Passcode (OTP) verification for first-time login. Upon successful verification, tap on Active Lifestyle Tracker to begin your journey to living your best life! ',
+              "Download the Herbalife Hub App from your Apple App Store or Google Play Store. At the login page, enter the email address in which you received the email invitation as the Login ID and the default password found in the email invitation. You will be asked to reset the password and complete the One-Time Passcode (OTP) verification for first-time login. Upon successful verification, tap on Active Lifestyle Tracker to begin your journey to living your best life! ",
             ],
           },
           {
             id: 5,
             title:
-              'How do I log in and access the Active Lifestyle Tracker using a unique Team Code sent to me by an Independent Herbalife Independent Distributor?',
+              "How do I log in and access the Active Lifestyle Tracker using a unique Team Code sent to me by an Independent Herbalife Independent Distributor?",
             answer: [
-              'Download the Herbalife Hub App from your Apple App Store or Google Play Store. At the login page, click on “Sign up” to create an account. Enter the unique Team Code and complete the account creation form. You will be asked to complete the One-Time Passcode (OTP) verification for first-time login. Upon successful verification, tap on Active Lifestyle Tracker to begin your journey to living your best life!',
+              "Download the Herbalife Hub App from your Apple App Store or Google Play Store. At the login page, click on “Sign up” to create an account. Enter the unique Team Code and complete the account creation form. You will be asked to complete the One-Time Passcode (OTP) verification for first-time login. Upon successful verification, tap on Active Lifestyle Tracker to begin your journey to living your best life!",
             ],
           },
           {
             id: 6,
             title:
-              'As a Herbalife Independent Distributor, how do I access Active Lifestyle Tracker?',
+              "As a Herbalife Independent Distributor, how do I access Active Lifestyle Tracker?",
             answer: [
-              'If you are a Herbalife Independent Distributor you can access our Active Lifestyle Tracker using your MyHerbalife.com credential to log in. ',
+              "If you are a Herbalife Independent Distributor you can access our Active Lifestyle Tracker using your MyHerbalife.com credential to log in. ",
             ],
           },
           {
             id: 7,
             title:
-              'Is there a chargeable subscription fee that I need to pay for using the Active Lifestyle Tracker?',
+              "Is there a chargeable subscription fee that I need to pay for using the Active Lifestyle Tracker?",
             answer: [
-              'There is no chargeable subscription fee for usage of Active Lifestyle Tracker. It is a complementary Herbalife exclusive fitness activity tracker available for use for all our Herbalife Independent Distributors, Preferred Customers, and their invited customers (non-distributors).',
+              "There is no chargeable subscription fee for usage of Active Lifestyle Tracker. It is a complementary Herbalife exclusive fitness activity tracker available for use for all our Herbalife Independent Distributors, Preferred Customers, and their invited customers (non-distributors).",
             ],
           },
           {
             id: 8,
             title:
-              'Why am I being asked to input the One Time Password (OTP) verification code sent to my email address?',
+              "Why am I being asked to input the One Time Password (OTP) verification code sent to my email address?",
             answer: [
-              'The OTP feature serves as an added layer of security against any unauthorized account creation with your email address. The OTP is a time-sensitive verification code that is sent to your indicated email address which you must enter within 5 minutes.',
+              "The OTP feature serves as an added layer of security against any unauthorized account creation with your email address. The OTP is a time-sensitive verification code that is sent to your indicated email address which you must enter within 5 minutes.",
             ],
           },
           {
             id: 9,
             title:
-              'What should I do if I do not receive the One Time Password (OTP) verification email?',
+              "What should I do if I do not receive the One Time Password (OTP) verification email?",
             answer: [
-              'If you are not receiving the OTP emails in your inbox, search your spam folder as the emails sometimes end up there. Otherwise, you may click on the “Resend OTP” button after 1 minute to trigger a new OTP verification code email.',
-              'If the problem persists, please contact us here. (hyperlink to contact us page on .com)',
+              "If you are not receiving the OTP emails in your inbox, search your spam folder as the emails sometimes end up there. Otherwise, you may click on the “Resend OTP” button after 1 minute to trigger a new OTP verification code email.",
+              "If the problem persists, please contact us here. (hyperlink to contact us page on .com)",
             ],
           },
           {
             id: 10,
-            title: 'I have forgotten my password. What should I do?',
+            title: "I have forgotten my password. What should I do?",
             answer: [
-              'Select “Forgot Password” on the Sign-In page to reset your password. Enter your registered email to receive an OTP verification email to reset your password.',
+              "Select “Forgot Password” on the Sign-In page to reset your password. Enter your registered email to receive an OTP verification email to reset your password.",
             ],
           },
           {
             id: 11,
             title:
-              'Is the Active Lifestyle Tracker available for a specific time only?',
+              "Is the Active Lifestyle Tracker available for a specific time only?",
             answer: [
-              'No, the Active Lifestyle Tracker is currently available for all Herbalife Independent Distributors, Preferred Customers, and their invited customers (non-Distributors) residing in Indonesia, Japan, Korea, Malaysia, Philippines, Singapore, Taiwan, and Thailand unless otherwise indicated by Herbalife. ',
+              "No, the Active Lifestyle Tracker is currently available for all Herbalife Independent Distributors, Preferred Customers, and their invited customers (non-Distributors) residing in Indonesia, Japan, Korea, Malaysia, Philippines, Singapore, Taiwan, and Thailand unless otherwise indicated by Herbalife. ",
             ],
           },
           {
             id: 12,
             title:
-              'Herbalife Hub App has not been launched in the country that I am residing in. Will I still be able to log in and use the Active Lifestyle Tracker?',
+              "Herbalife Hub App has not been launched in the country that I am residing in. Will I still be able to log in and use the Active Lifestyle Tracker?",
             answer: [
-              'Unfortunately, you will not be able to download the Herbalife Hub App from your Apple App Store and Google Play Store to access the Active Lifestyle Tracker if you are not residing in Indonesia, Japan, Korea, Malaysia, Philippines, Singapore, Taiwan, and Thailand where the App is launched.',
+              "Unfortunately, you will not be able to download the Herbalife Hub App from your Apple App Store and Google Play Store to access the Active Lifestyle Tracker if you are not residing in Indonesia, Japan, Korea, Malaysia, Philippines, Singapore, Taiwan, and Thailand where the App is launched.",
             ],
           },
         ],
       },
       {
-        category: 'Recording and Submitting Your Fitness Activities',
+        category: "Recording and Submitting Your Fitness Activities",
         questions: [
           {
             id: 13,
             title:
-              'Which sports can the Herbalife Active Lifestyle Tracker track and record?',
+              "Which sports can the Herbalife Active Lifestyle Tracker track and record?",
             answer: [
-              'Herbalife Active Lifestyle Tracker can track and record distance-based activities, specifically running/walking, cycling, and swimming activities. You can choose to use the In-App Activity Tracker or pair your compatible GPS-enable wearables to the Active Lifestyle Tracker using the Apple Health (for iOS) or Google Fit (for Android) App to seamlessly submit your activities.',
+              "Herbalife Active Lifestyle Tracker can track and record distance-based activities, specifically running/walking, cycling, and swimming activities. You can choose to use the In-App Activity Tracker or pair your compatible GPS-enable wearables to the Active Lifestyle Tracker using the Apple Health (for iOS) or Google Fit (for Android) App to seamlessly submit your activities.",
             ],
           },
           {
             id: 14,
             title:
-              'How can I track and submit my run/walk, cycle, and swim activities?',
+              "How can I track and submit my run/walk, cycle, and swim activities?",
             answer: [
-              'There are 3 submission options that you can choose to submit your run/walk, cycle, and swim activities. You may choose either one method to submit these activities and we strongly recommend you select Option 1 In-App Activity Tracker for a fuss-free experience. Please note that duplicated submissions for the same activity through different submission options will not be counted and will be removed from your Dashboard activity records.',
+              "There are 3 submission options that you can choose to submit your run/walk, cycle, and swim activities. You may choose either one method to submit these activities and we strongly recommend you select Option 1 In-App Activity Tracker for a fuss-free experience. Please note that duplicated submissions for the same activity through different submission options will not be counted and will be removed from your Dashboard activity records.",
               '<span class="underline bold">Option 1: Using In-App Activity Tracker</span>',
-              'Launch the Herbalife Hub App, select Active Lifestyle Tracker and use the in-app activity tracker to record and submit your run/walk and cycle activities directly. Simply select the sports type under the Home tab, tap on “Start” to start the activity recording, and click on “Stop” when you have completed it. Your submitted activity record will be reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.',
-              'Step 1: Launch your Herbalife Hub App and select Active Lifestyle Tracker.',
-              'Step 2: Select the sports type you wish to record under the Home tab.',
-              'Step 3: Select if you wish to contribute the activity to your records only by selecting “Individual” or to your sports team by selecting “Team” and then select the sports team to contribute it to if you are part of multiple sports teams.',
-              'Step 4: Tap on the “Start” icon to begin the activity recording. Ensure that you bring your phone along during your activities. To avoid activity recording problems, ensure that your GPS and network connection is stable.',
-              'Step 5: Tap on the “Stop” icon to end the activity recording when you have completed the activity. You may also tap on the “Pause” icon to temporarily stop the activity recording for a maximum of 10 minutes.',
-              'Step 6: Click “Confirm” to submit your recorded activity.',
-              'Step 7: Done! Your activity result is now submitted and reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.',
+              "Launch the Herbalife Hub App, select Active Lifestyle Tracker and use the in-app activity tracker to record and submit your run/walk and cycle activities directly. Simply select the sports type under the Home tab, tap on “Start” to start the activity recording, and click on “Stop” when you have completed it. Your submitted activity record will be reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.",
+              "Step 1: Launch your Herbalife Hub App and select Active Lifestyle Tracker.",
+              "Step 2: Select the sports type you wish to record under the Home tab.",
+              "Step 3: Select if you wish to contribute the activity to your records only by selecting “Individual” or to your sports team by selecting “Team” and then select the sports team to contribute it to if you are part of multiple sports teams.",
+              "Step 4: Tap on the “Start” icon to begin the activity recording. Ensure that you bring your phone along during your activities. To avoid activity recording problems, ensure that your GPS and network connection is stable.",
+              "Step 5: Tap on the “Stop” icon to end the activity recording when you have completed the activity. You may also tap on the “Pause” icon to temporarily stop the activity recording for a maximum of 10 minutes.",
+              "Step 6: Click “Confirm” to submit your recorded activity.",
+              "Step 7: Done! Your activity result is now submitted and reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.",
               ,
               '<span class="underline bold">Option 2: Using Compatible Fitness App and Wearables</span>',
-              'Pair your compatible GPS-enabled wearables with Herbalife Active Lifestyle Tracker using Apple Health or Google Fit App to seamlessly submit your run/walk, cycle, and swim activities. Start and end an activity using your wearable to record your activity. Ensure your activities record is firstly synced to Apple Health or Google Fit App and then to the Active Lifestyle Tracker each time you launch it. Your submitted record will be reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.',
-              'Step 1: Launch your Apple Health App (for iOS device users) or Google Fit (for Android device users)',
-              'Step 2: Follow the steps to link your preferred GPS-enabled wearable tracker to Apple Health or Google Fit App. For example, Garmin users need to log in to their Garmin Connect account.',
-              'Step 3: Launch your Herbalife Hub App and select Active Lifestyle Tracker.',
-              'Step 4: Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard.',
-              'Step 5: Go to the Achievement Update tab select the sports category and then the activity category to which you wish to assign your wearable run/walk, cycle, and swim activities. You will be able to change this selection at any time by repeating this same step.',
-              'Step 6: Click on “Update achievement” and then tap on “Sync from my wearable”. Select Apple Health or Google Fit to allow synchronization of activities to Active Lifestyle Tracker.',
-              'Step 7: Done! Your wearable is now successfully linked to your Active Lifestyle Tracker through your Apple Health or Google Fit App. You can now record the sports activity type that you have synced your wearable to using your GPS-enabled wearable.',
-              'Step 8: Record an activity using your paired compatible wearable with Active Lifestyle Tracker. New activities will be automatically synced from Apple Health or Google Fit App to Active Lifestyle Tracker and will be reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.',
-              `  <div style="margin: 0 40px; overflow-x: auto;">
-              <table class="tg" style="table-layout: fixed; width: 808px">
-                <colgroup>
-                  <col style="width: 105px" />
-                  <col style="width: 106px" />
-                  <col style="width: 120px" />
-                  <col style="width: 149px" />
-                  <col style="width: 167px" />
-                  <col style="width: 161px" />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th class="tg-gmla" colspan="6">
-                      <span
-                        style="
-                          font-weight: 700;
-                          font-style: normal;
-                          text-decoration: none;
-                        "
-                        >Supported Wearables for Active Lifestyle Tracker via Apple
-                        Health or Google Fit App.</span
-                      >
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="tg-gmla" colspan="6">
-                      <span
-                        style="
-                          font-weight: 700;
-                          font-style: normal;
-                          text-decoration: none;
-                        "
-                        >Apple Health</span
-                      ><br /><span class="dot-item"
-                        >Recommended for iOS Mobile Device Users</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="tg-2asz">Apple<br />&#x2022; Apple Watch 4 or later</td>
-                    <td class="tg-zd5i">
-                      <span>Fitbit</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Surge</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Iconic</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Charge 5</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Charge 4</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Versa 4</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Versa 3</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Sense 2</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Sense 1</span>
-                    </td>
-                    <td class="tg-zd5i">
-                      <span> Garmin</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Forerunner series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Fenix series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Venu series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Instinct series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Vivoactive series</span>
-                      <br />
-                    </td>
-                    <td class="tg-zd5i">
-                      <span>Samsung</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Galaxy Watch 3 or later</span>
-                      <br />
-                      <span class="dot-item"
-                        >&#x2022; Galaxy Watch Active 1 &amp; 2</span
-                      >
-                    </td>
-                    <td class="tg-zd5i">
-                      <span>Xiaomi</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Mi Band 5 or later</span>
-                      <br />
-                      <span class="dot-item"
-                        >&#x2022; Amazfit GTS Mini, GTS 3 or later
-                      </span>
-                      <br />
-                      <span class="dot-item">&#x2022; Amazfit Falxon</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Amazfit T-Rex</span>
-                      <br />
-                    </td>
-                    <td class="tg-ltad">
-                      <span>Oppo</span>
-                      <br />
-                      <span class="dot-item">&#x2022; OPPO Watch</span>
-                      <br />
-                      <span class="dot-item">&#x2022; OPPO Band 2</span>
-                      <br />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="tg-gmla" colspan="6">
-                      <span style="font-weight: bold">Google Fit</span><br />Recommended
-                      for Android Mobile Device Users
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0pky">
-                      <span>Google</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Pixel watch</span>
-                      <br />
-                    </td>
-                    <td class="tg-0pky">
-                      <span>Fibit</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Surge</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Iconic</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Charge 5</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Charge 4</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Versa 4</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Versa 3</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Sense 2</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Sense 1</span>
-                      <br />
-                    </td>
-                    <td class="tg-0pky">
-                      <span>Garmin</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Forerunner series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Fenix series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Venu series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Instinct series</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Vivoactive series</span>
-                      <br />
-                    </td>
-                    <td class="tg-0pky">
-                      <span>Samsung</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Galaxy Watch 3 or later</span>
-                      <br />
-                      <span class="dot-item"
-                        >&#x2022; Galaxy Watch Active 1 &amp; 2
-                      </span>
-                    </td>
-                    <td class="tg-0pky">
-                      <span>Xiaomi</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Mi Band 5 or later</span>
-                      <br />
-                      <span class="dot-item"
-                        >&#x2022; Amazfit GTS Mini, GTS 3 or later
-                      </span>
-                      <br />
-                      <span class="dot-item">&#x2022; Amazfit Falxon</span>
-                      <br />
-                      <span class="dot-item">&#x2022; Amazfit T-Rex</span>
-                    </td>
-                    <td class="tg-0lax">
-                      <span> Oppo </span>
-                      <br />
-                      <span class="dot-item">&#x2022; OPPO Watch</span>
-                      <br />
-                      <span class="dot-item">&#x2022; OPPO Band 2</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          `,
+              "Pair your compatible GPS-enabled wearables with Herbalife Active Lifestyle Tracker using Apple Health or Google Fit App to seamlessly submit your run/walk, cycle, and swim activities. Start and end an activity using your wearable to record your activity. Ensure your activities record is firstly synced to Apple Health or Google Fit App and then to the Active Lifestyle Tracker each time you launch it. Your submitted record will be reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.",
+              "Step 1: Launch your Apple Health App (for iOS device users) or Google Fit (for Android device users)",
+              "Step 2: Follow the steps to link your preferred GPS-enabled wearable tracker to Apple Health or Google Fit App. For example, Garmin users need to log in to their Garmin Connect account.",
+              "Step 3: Launch your Herbalife Hub App and select Active Lifestyle Tracker.",
+              "Step 4: Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard.",
+              "Step 5: Go to the Achievement Update tab select the sports category and then the activity category to which you wish to assign your wearable run/walk, cycle, and swim activities. You will be able to change this selection at any time by repeating this same step.",
+              "Step 6: Click on “Update achievement” and then tap on “Sync from my wearable”. Select Apple Health or Google Fit to allow synchronization of activities to Active Lifestyle Tracker.",
+              "Step 7: Done! Your wearable is now successfully linked to your Active Lifestyle Tracker through your Apple Health or Google Fit App. You can now record the sports activity type that you have synced your wearable to using your GPS-enabled wearable.",
+              "Step 8: Record an activity using your paired compatible wearable with Active Lifestyle Tracker. New activities will be automatically synced from Apple Health or Google Fit App to Active Lifestyle Tracker and will be reflected on your Dashboard Achievements Update tab which can be accessed by tapping on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker.",
+              `  <div style="overflow-x: auto;">
+                  <table class="tg" style="table-layout: fixed; width: 808px">
+                    <colgroup>
+                      <col style="width: 105px" />
+                      <col style="width: 106px" />
+                      <col style="width: 120px" />
+                      <col style="width: 149px" />
+                      <col style="width: 167px" />
+                      <col style="width: 161px" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th class="tg-gmla" colspan="6">
+                          <span class="table-title">Supported Wearables for Active Lifestyle Tracker via Apple
+                            Health or Google Fit App.</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tg-gmla" colspan="6">
+                          <span class="table-title">Apple Health</span><br />
+                          <span class="dot-item" style="font-size: 14px">Recommended for iOS Mobile Device Users</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tg-2asz">Apple<br />&#x2022; Apple Watch 4 or later</td>
+                        <td class="tg-zd5i">
+                          <span>Fitbit</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Surge</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Iconic</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Charge 5</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Charge 4</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Versa 4</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Versa 3</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Sense 2</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Sense 1</span>
+                        </td>
+                        <td class="tg-zd5i">
+                          <span> Garmin</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Forerunner series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Fenix series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Venu series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Instinct series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Vivoactive series</span>
+                          <br />
+                        </td>
+                        <td class="tg-zd5i">
+                          <span>Samsung</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Galaxy Watch 3 or later</span>
+                          <br />
+                          <span class="dot-item"
+                            >&#x2022; Galaxy Watch Active 1 &amp; 2</span
+                          >
+                        </td>
+                        <td class="tg-zd5i">
+                          <span>Xiaomi</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Mi Band 5 or later</span>
+                          <br />
+                          <span class="dot-item"
+                            >&#x2022; Amazfit GTS Mini, GTS 3 or later
+                          </span>
+                          <br />
+                          <span class="dot-item">&#x2022; Amazfit Falxon</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Amazfit T-Rex</span>
+                          <br />
+                        </td>
+                        <td class="tg-ltad">
+                          <span>Oppo</span>
+                          <br />
+                          <span class="dot-item">&#x2022; OPPO Watch</span>
+                          <br />
+                          <span class="dot-item">&#x2022; OPPO Band 2</span>
+                          <br />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tg-gmla" colspan="6">
+                          <span style="font-weight: bold">Google Fit</span><br />
+                          <span style="font-size: 14px">Recommended for Android Mobile Device Users</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tg-0pky">
+                          <span>Google</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Pixel watch</span>
+                          <br />
+                        </td>
+                        <td class="tg-0pky">
+                          <span>Fibit</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Surge</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Iconic</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Charge 5</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Charge 4</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Versa 4</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Versa 3</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Sense 2</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Sense 1</span>
+                          <br />
+                        </td>
+                        <td class="tg-0pky">
+                          <span>Garmin</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Forerunner series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Fenix series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Venu series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Instinct series</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Vivoactive series</span>
+                          <br />
+                        </td>
+                        <td class="tg-0pky">
+                          <span>Samsung</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Galaxy Watch 3 or later</span>
+                          <br />
+                          <span class="dot-item"
+                            >&#x2022; Galaxy Watch Active 1 &amp; 2
+                          </span>
+                        </td>
+                        <td class="tg-0pky">
+                          <span>Xiaomi</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Mi Band 5 or later</span>
+                          <br />
+                          <span class="dot-item"
+                            >&#x2022; Amazfit GTS Mini, GTS 3 or later
+                          </span>
+                          <br />
+                          <span class="dot-item">&#x2022; Amazfit Falxon</span>
+                          <br />
+                          <span class="dot-item">&#x2022; Amazfit T-Rex</span>
+                        </td>
+                        <td class="tg-0lax">
+                          <span> Oppo </span>
+                          <br />
+                          <span class="dot-item">&#x2022; OPPO Watch</span>
+                          <br />
+                          <span class="dot-item">&#x2022; OPPO Band 2</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              `,
               '<span class="underline bold">Option 3: Manual Update</span>',
-              'Submit your activity result from the treadmill run/walk by taking a photo of your treadmill dashboard indicating distance (km), duration of the run, and average pace (time/km) together with a device showing a reference to the date. Upload the photo manually by selecting “Manual Update” under your Dashboard Achievement Update tab on the Active Lifestyle Tracker. Manual update is only recommended for treadmill run/walk only.',
-              'Step 1: Upon completion of your treadmill run/walk, take a photo of your treadmill dashboard indicating distance (km), duration of the run, and average pace (time/km) together with a device showing a reference to the activity date and time.',
-              'Step 2: Launch your Herbalife Hub App and select Active Lifestyle Tracker.',
-              'Step 3: Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard.',
-              'Step 4: Go to the Achievement Update tab select the sports category and then the activity category to which you wish to add the activity record.',
-              'Step 5: Click on “Update achievement” and then tap on “Manual update”.',
-              'Step 6: Enter your activity details such as date, distance, and duration. Upload the photo taken in Step 1. You may submit up to a maximum of 3 photos as proof of activity.',
-              'Step 7: Click on “Update achievement” again and done! Your activity result is now submitted and reflected on your Dashboard Achievements Update tab.',
+              "Submit your activity result from the treadmill run/walk by taking a photo of your treadmill dashboard indicating distance (km), duration of the run, and average pace (time/km) together with a device showing a reference to the date. Upload the photo manually by selecting “Manual Update” under your Dashboard Achievement Update tab on the Active Lifestyle Tracker. Manual update is only recommended for treadmill run/walk only.",
+              "Step 1: Upon completion of your treadmill run/walk, take a photo of your treadmill dashboard indicating distance (km), duration of the run, and average pace (time/km) together with a device showing a reference to the activity date and time.",
+              "Step 2: Launch your Herbalife Hub App and select Active Lifestyle Tracker.",
+              "Step 3: Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard.",
+              "Step 4: Go to the Achievement Update tab select the sports category and then the activity category to which you wish to add the activity record.",
+              "Step 5: Click on “Update achievement” and then tap on “Manual update”.",
+              "Step 6: Enter your activity details such as date, distance, and duration. Upload the photo taken in Step 1. You may submit up to a maximum of 3 photos as proof of activity.",
+              "Step 7: Click on “Update achievement” again and done! Your activity result is now submitted and reflected on your Dashboard Achievements Update tab.",
             ],
           },
           {
             id: 15,
             title:
-              'How are the distance and calories burnt being calculated if I record my activities using the In-App Activity Tracker?',
+              "How are the distance and calories burnt being calculated if I record my activities using the In-App Activity Tracker?",
             answer: [
-              'For distance calculation, the Active Lifestyle Tracker accesses the GPS in your mobile device and the orbiting satellites above the Earth to determine your estimated location to provide an estimation of the distance achieved in each activity.',
-              'For calories burnt calculation, the Active Lifestyle Tracker uses your data such as weight and height together with the recorded distance of your activity to estimate the calories burnt. Calories burnt for each activity are a function of speed, weight, and moving time. The estimated calories can be derived by multiplying these with a scaling factor.',
+              "For distance calculation, the Active Lifestyle Tracker accesses the GPS in your mobile device and the orbiting satellites above the Earth to determine your estimated location to provide an estimation of the distance achieved in each activity.",
+              "For calories burnt calculation, the Active Lifestyle Tracker uses your data such as weight and height together with the recorded distance of your activity to estimate the calories burnt. Calories burnt for each activity are a function of speed, weight, and moving time. The estimated calories can be derived by multiplying these with a scaling factor.",
             ],
           },
           {
             id: 16,
             title:
-              'Why am I asked to input my height and weight right before I start the activity recording using the In-App Activity Tracker?',
+              "Why am I asked to input my height and weight right before I start the activity recording using the In-App Activity Tracker?",
             answer: [
-              'The Active Lifestyle In-App Tracker uses your height and weight information to calculate the estimated calories burnt for each of your activities. To get a better estimation of the calories burnt, we recommend that you input your height and weight. Otherwise, you may choose not to provide it by skipping this step.',
+              "The Active Lifestyle In-App Tracker uses your height and weight information to calculate the estimated calories burnt for each of your activities. To get a better estimation of the calories burnt, we recommend that you input your height and weight. Otherwise, you may choose not to provide it by skipping this step.",
             ],
           },
           {
             id: 17,
             title:
-              'Can I submit other sports activities beyond run/walk, cycle, and swim activities using the manual update submission option? Can I also upload my screenshots from other fitness apps or wearables?',
+              "Can I submit other sports activities beyond run/walk, cycle, and swim activities using the manual update submission option? Can I also upload my screenshots from other fitness apps or wearables?",
             answer: [
-              'Active Lifestyle Tracker is currently only available to record running/walking, cycling, and swimming. We recommend that you only use the manual update submission option for non-GPS trackable activities where you will be able to submit a reasonable proof of activity. An example would be a treadmill run/walk where you would be able to submit a photo of the treadmill dashboard or treadmill app screenshot indicating distance (km), duration of the run, and average pace (time/km) together with a device showing a reference to the activity date and time. ',
+              "Active Lifestyle Tracker is currently only available to record running/walking, cycling, and swimming. We recommend that you only use the manual update submission option for non-GPS trackable activities where you will be able to submit a reasonable proof of activity. An example would be a treadmill run/walk where you would be able to submit a photo of the treadmill dashboard or treadmill app screenshot indicating distance (km), duration of the run, and average pace (time/km) together with a device showing a reference to the activity date and time. ",
             ],
           },
           {
             id: 18,
             title:
-              'I do not have any compatible wearables that can sync with the Active Lifestyle Tracker. What should I do?',
+              "I do not have any compatible wearables that can sync with the Active Lifestyle Tracker. What should I do?",
             answer: [
-              'Active Lifestyle Tracker has a total of 3 different options where you can choose, record and submit your run/walk, cycle, and swim activities. If you do not have a compatible wearable that can be synced with the Active Lifestyle Tracker, please use the other 2 submission options listed in Q12 to record and submit your run/walk, cycle, and swim activities.',
+              "Active Lifestyle Tracker has a total of 3 different options where you can choose, record and submit your run/walk, cycle, and swim activities. If you do not have a compatible wearable that can be synced with the Active Lifestyle Tracker, please use the other 2 submission options listed in Q12 to record and submit your run/walk, cycle, and swim activities.",
             ],
           },
           {
             id: 19,
-            title: 'Is there a minimum distance for each activity submission?',
+            title: "Is there a minimum distance for each activity submission?",
             answer: [
-              'Yes, each run/walk, cycle, or swim activity must be at least 200m to qualify as one activity submission.',
+              "Yes, each run/walk, cycle, or swim activity must be at least 200m to qualify as one activity submission.",
             ],
           },
           {
             id: 20,
-            title: 'Is there a limit on how many activities I can submit?',
+            title: "Is there a limit on how many activities I can submit?",
             answer: [
-              'No, there is no limit to how many activities results you can submit',
+              "No, there is no limit to how many activities results you can submit",
             ],
           },
           {
             id: 21,
             title:
-              'How can I track my fitness progress using the Active Lifestyle Tracker?',
+              "How can I track my fitness progress using the Active Lifestyle Tracker?",
             answer: [
-              'Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard. You will be able to view your fitness progress statistics, achievements, and your e-Badges.',
+              "Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard. You will be able to view your fitness progress statistics, achievements, and your e-Badges.",
             ],
           },
           {
             id: 22,
-            title: 'What are disqualified activities?',
+            title: "What are disqualified activities?",
             answer: [
-              'Any activity records that are accounted for from transportation devices or vehicles (train, bus, car, motorbike, etc.) and duplicated activities will not count in your Dashboard Achievements. Any abnormal/assisted and duplicated activity records submitted will be tagged as “Disqualified” on your Dashboard Achievement Update tab.',
+              "Any activity records that are accounted for from transportation devices or vehicles (train, bus, car, motorbike, etc.) and duplicated activities will not count in your Dashboard Achievements. Any abnormal/assisted and duplicated activity records submitted will be tagged as “Disqualified” on your Dashboard Achievement Update tab.",
             ],
           },
           {
             id: 23,
             title:
-              'I received a disqualification notification for my activity submission. Why is that so?',
+              "I received a disqualification notification for my activity submission. Why is that so?",
             answer: [
-              'Any suspicious run records such as multiple irrational speeding attempts or overlapping activity will be automatically detected and disqualified by the system. Please ensure that you are not on any form of transportation device or vehicle when recording your run/walk, cycle, or swim activities.',
-              'Disqualified record submissions will be flagged on your Dashboard Achievement Update tab and will not count towards your total accumulated distance. We strongly encourage you to submit your activity records at a reasonable pace and speed.',
+              "Any suspicious run records such as multiple irrational speeding attempts or overlapping activity will be automatically detected and disqualified by the system. Please ensure that you are not on any form of transportation device or vehicle when recording your run/walk, cycle, or swim activities.",
+              "Disqualified record submissions will be flagged on your Dashboard Achievement Update tab and will not count towards your total accumulated distance. We strongly encourage you to submit your activity records at a reasonable pace and speed.",
             ],
           },
           {
             id: 24,
             title:
-              'What should I do if I think my run was wrongfully disqualified?',
+              "What should I do if I think my run was wrongfully disqualified?",
             answer: [
-              'You may run/walk, cycle, and swim at a reasonable pace and speed without assistance and resubmit. Alternatively, you may reach out to your respective Team Leader on Active Lifestyle Tracker to update your achievements.',
+              "You may run/walk, cycle, and swim at a reasonable pace and speed without assistance and resubmit. Alternatively, you may reach out to your respective Team Leader on Active Lifestyle Tracker to update your achievements.",
             ],
           },
         ],
       },
       {
-        category: 'All about Active Lifestyle Teams',
+        category: "All about Active Lifestyle Teams",
         questions: [
           {
             id: 25,
-            title: 'Who can create a sports team on Active Lifestyle Tracker?',
+            title: "Who can create a sports team on Active Lifestyle Tracker?",
             answer: [
-              'Only Herbalife Independent Distributors or Preferred Customers can create a run/walk, cycle, or swim sports team on Active Lifestyle Tracker.',
+              "Only Herbalife Independent Distributors or Preferred Customers can create a run/walk, cycle, or swim sports team on Active Lifestyle Tracker.",
             ],
           },
           {
             id: 26,
             title:
-              'How do I create a sports team on the Active Lifestyle Tracker?',
+              "How do I create a sports team on the Active Lifestyle Tracker?",
             answer: [
-              'Herbalife Independent Distributors and Preferred Customers will be able to create multiple sports teams in running/walking, cycling, or swimming by downloading the Herbalife Hub App and logging in with your Herbalife Distributor or Preferred Customer ID and password. Select the Active Lifestyle Tracker and go to the Team tab and tap on “Create a team”. Simply fill in all the required information and click on “Create” to complete the new team creation.',
+              "Herbalife Independent Distributors and Preferred Customers will be able to create multiple sports teams in running/walking, cycling, or swimming by downloading the Herbalife Hub App and logging in with your Herbalife Distributor or Preferred Customer ID and password. Select the Active Lifestyle Tracker and go to the Team tab and tap on “Create a team”. Simply fill in all the required information and click on “Create” to complete the new team creation.",
             ],
           },
           {
             id: 27,
-            title: 'How many teams can I create and join?',
+            title: "How many teams can I create and join?",
             answer: [
-              'There is no limit to how many teams a Herbalife Independent Distributor and Preferred Customer can create and join. If you are a non-Herbalife Distributor or non-Herbalife Preferred Customer, you will be able to join multiple sports teams as invited by a Herbalife Independent Distributor.',
+              "There is no limit to how many teams a Herbalife Independent Distributor and Preferred Customer can create and join. If you are a non-Herbalife Distributor or non-Herbalife Preferred Customer, you will be able to join multiple sports teams as invited by a Herbalife Independent Distributor.",
             ],
           },
           {
             id: 28,
             title:
-              'Can I join any teams that are available in the Active Lifestyle Tracker?',
+              "Can I join any teams that are available in the Active Lifestyle Tracker?",
             answer: [
-              'You will be able to join any sports team available on Active Lifestyle Tracker if you are invited by the Team Leader/Assistant through an exclusive email invitation or unique Team Code sent to you if you do not have an account on the Herbalife Hub App. Refer to Q1 on how to log in and join the team if you have received the email invitation or unique Team Code.',
-              'For existing users of the Herbalife Hub App, you can also get the unique Team Code from your Team Leader and join the team by entering the Team Code after selecting it under the Team tab of Active Lifestyle Tracker.',
+              "You will be able to join any sports team available on Active Lifestyle Tracker if you are invited by the Team Leader/Assistant through an exclusive email invitation or unique Team Code sent to you if you do not have an account on the Herbalife Hub App. Refer to Q1 on how to log in and join the team if you have received the email invitation or unique Team Code.",
+              "For existing users of the Herbalife Hub App, you can also get the unique Team Code from your Team Leader and join the team by entering the Team Code after selecting it under the Team tab of Active Lifestyle Tracker.",
             ],
           },
           {
             id: 29,
             title:
-              'Am I allowed to create or join a Team with members who are not of the same country as mine?',
+              "Am I allowed to create or join a Team with members who are not of the same country as mine?",
             answer: [
-              'No, all members of the team including the Team Leader/Assistant need to be in the same country.',
+              "No, all members of the team including the Team Leader/Assistant need to be in the same country.",
             ],
           },
           {
             id: 30,
             title:
-              'Is there a limit on how many Team members I can have in a Team?',
+              "Is there a limit on how many Team members I can have in a Team?",
             answer: [
-              'No, there is no limit on the number of Team members you can have in a Team. You will need a minimum of one team member to create a Team.',
+              "No, there is no limit on the number of Team members you can have in a Team. You will need a minimum of one team member to create a Team.",
             ],
           },
           {
             id: 31,
             title:
-              'How do I appoint Team Assistants? Is there a limit on how many Team Assistants I can have in a Team?',
+              "How do I appoint Team Assistants? Is there a limit on how many Team Assistants I can have in a Team?",
             answer: [
-              'If you are a Team Leader, you will be able to appoint multiple Team Assistants to help manage the Team. Simply go to the Team tab of the Active Lifestyle Tracker, select the team, and tap on “Manage a team”. Select the member you wish to appoint as Team Assistant and tap on “Make assistant”. There is no limit on the number of Team Assistants you can have in a Team.',
+              "If you are a Team Leader, you will be able to appoint multiple Team Assistants to help manage the Team. Simply go to the Team tab of the Active Lifestyle Tracker, select the team, and tap on “Manage a team”. Select the member you wish to appoint as Team Assistant and tap on “Make assistant”. There is no limit on the number of Team Assistants you can have in a Team.",
             ],
           },
           {
             id: 32,
-            title: 'How do I invite more people to join my Team?',
+            title: "How do I invite more people to join my Team?",
             answer: [
-              'If you are a Team Leader/Assistant, you will be able to invite other Herbalife Independent Distributors, Preferred Customers, and customers to join your Team on Active Lifestyle Tracker. Simply go to the Team tab of the Active Lifestyle Tracker, select the team, and tap on “Manage a team”. Click on “Add members” to send an email invite or “Share team code” to share your unique Team Code through other messaging apps.',
+              "If you are a Team Leader/Assistant, you will be able to invite other Herbalife Independent Distributors, Preferred Customers, and customers to join your Team on Active Lifestyle Tracker. Simply go to the Team tab of the Active Lifestyle Tracker, select the team, and tap on “Manage a team”. Click on “Add members” to send an email invite or “Share team code” to share your unique Team Code through other messaging apps.",
             ],
           },
           {
             id: 33,
             title:
-              'I am the Team Leader/Assistant. Can I invite anyone to join my team?',
+              "I am the Team Leader/Assistant. Can I invite anyone to join my team?",
             answer: [
-              'Yes, you will be able to invite anyone of your preference by sending the email invitation through the App or sharing with them your unique Team code for them to join you on the Active Lifestyle Tracker.',
+              "Yes, you will be able to invite anyone of your preference by sending the email invitation through the App or sharing with them your unique Team code for them to join you on the Active Lifestyle Tracker.",
             ],
           },
           {
             id: 34,
             title:
-              'Can a non-Herbalife Distributor or non-Herbalife Preferred Customer join a team?',
+              "Can a non-Herbalife Distributor or non-Herbalife Preferred Customer join a team?",
             answer: [
-              'Yes, a non-Herbalife Distributor or non-Herbalife Preferred Customer will be able to join a team if they have received an exclusive email invitation or unique Team Code shared by a Herbalife Independent Distributor who is a Team Leader/Assistant of a Sports Team on Active Lifestyle Tracker and if they have accepted the applicable Terms & Conditions.',
-              'Please refer to Q1 on how to log in and join the team if you have received the email invitation or unique Team Code.',
+              "Yes, a non-Herbalife Distributor or non-Herbalife Preferred Customer will be able to join a team if they have received an exclusive email invitation or unique Team Code shared by a Herbalife Independent Distributor who is a Team Leader/Assistant of a Sports Team on Active Lifestyle Tracker and if they have accepted the applicable Terms & Conditions.",
+              "Please refer to Q1 on how to log in and join the team if you have received the email invitation or unique Team Code.",
             ],
           },
           {
             id: 35,
-            title: 'Can I leave my current team and join another team?',
+            title: "Can I leave my current team and join another team?",
             answer: [
-              'Yes, you will be able to leave your current team if you decide to leave. Simply go to the Team tab of the Active Lifestyle Tracker, select the team, and tap on the 3-dots icon in the top right corner. Tap on “Leave team” and confirm the selection. Kindly note that you will be able to join multiple sports teams and do not need to belong to one team only.',
-              'To join another Team, you will need to be invited by the Team Leader through an email invitation or a unique Team Code. ',
+              "Yes, you will be able to leave your current team if you decide to leave. Simply go to the Team tab of the Active Lifestyle Tracker, select the team, and tap on the 3-dots icon in the top right corner. Tap on “Leave team” and confirm the selection. Kindly note that you will be able to join multiple sports teams and do not need to belong to one team only.",
+              "To join another Team, you will need to be invited by the Team Leader through an email invitation or a unique Team Code. ",
             ],
           },
           {
             id: 36,
             title:
-              'I have noticed someone that we are not familiar with has accidentally joined our Team. What should we do?',
+              "I have noticed someone that we are not familiar with has accidentally joined our Team. What should we do?",
             answer: [
-              'Please contact your Team Leader/Assistant to reach out to the individual and advise him/her accordingly. Your Team Leader/Assistant will be able to remove the member through the “Manage a team” function.',
+              "Please contact your Team Leader/Assistant to reach out to the individual and advise him/her accordingly. Your Team Leader/Assistant will be able to remove the member through the “Manage a team” function.",
             ],
           },
           {
             id: 37,
             title:
-              'Will my Team Leader/Assistant and members be able to track my fitness progress?',
+              "Will my Team Leader/Assistant and members be able to track my fitness progress?",
             answer: [
-              'Yes, your Team Leader/Assistant and members will be able to view the distance, estimated calories burnt, and any relevant information from the activities that you have assigned and submitted under the Team.',
+              "Yes, your Team Leader/Assistant and members will be able to view the distance, estimated calories burnt, and any relevant information from the activities that you have assigned and submitted under the Team.",
             ],
           },
           {
             id: 38,
             title:
-              'Will all my sports activities submitted contribute to all the teams that I am part of?',
+              "Will all my sports activities submitted contribute to all the teams that I am part of?",
             answer: [
-              'No, each activity submitted can only contribute to one team that you are part of. You will be asked to select your preferred activity category and team to assign the activity to before the start of the activity recording.',
+              "No, each activity submitted can only contribute to one team that you are part of. You will be asked to select your preferred activity category and team to assign the activity to before the start of the activity recording.",
             ],
           },
         ],
       },
       {
-        category: 'All about Active Lifestyle Challenges',
+        category: "All about Active Lifestyle Challenges",
         questions: [
           {
             id: 39,
-            title: 'Who can create a challenge on Active Lifestyle Tracker?',
+            title: "Who can create a challenge on Active Lifestyle Tracker?",
             answer: [
-              'Only Herbalife Independent Distributors or Preferred Customers can create a run/walk, cycle, or swim challenge on Active Lifestyle Tracker.',
+              "Only Herbalife Independent Distributors or Preferred Customers can create a run/walk, cycle, or swim challenge on Active Lifestyle Tracker.",
             ],
           },
           {
             id: 40,
             title:
-              'How do I create a challenge on the Active Lifestyle Tracker?',
+              "How do I create a challenge on the Active Lifestyle Tracker?",
             answer: [
-              'Herbalife Independent Distributors and Preferred Customers will be able to create multiple sports challenges in running/walking, cycling, or swimming by downloading the Herbalife Hub App and logging in with your Herbalife Distributor or Preferred Customer ID and password. Select the Active Lifestyle Tracker and go to the Challenge tab and tap on “Create a challenge”. Simply fill in all the required information and click on “Create new challenge” to complete the new challenge creation.',
+              "Herbalife Independent Distributors and Preferred Customers will be able to create multiple sports challenges in running/walking, cycling, or swimming by downloading the Herbalife Hub App and logging in with your Herbalife Distributor or Preferred Customer ID and password. Select the Active Lifestyle Tracker and go to the Challenge tab and tap on “Create a challenge”. Simply fill in all the required information and click on “Create new challenge” to complete the new challenge creation.",
             ],
           },
           {
             id: 41,
-            title: 'How many challenges can I create?',
+            title: "How many challenges can I create?",
             answer: [
-              'There is no limit to how many challenges a Herbalife Independent Distributor and Preferred Customer can create.',
+              "There is no limit to how many challenges a Herbalife Independent Distributor and Preferred Customer can create.",
             ],
           },
           {
             id: 42,
-            title: 'Who can join the challenges that I created?',
+            title: "Who can join the challenges that I created?",
             answer: [
-              'All Herbalife Independent Distributors and Preferred Customers on the Active Lifestyle Tracker will be able to view and join the challenges. For invited customers who are non-Herbalife Distributor or non-Herbalife Preferred Customer, you will be able to participate in the challenges that your Team Leader have registered your team for. Kindly ask your Team Lead to add yourself to the challenge.',
+              "All Herbalife Independent Distributors and Preferred Customers on the Active Lifestyle Tracker will be able to view and join the challenges. For invited customers who are non-Herbalife Distributor or non-Herbalife Preferred Customer, you will be able to participate in the challenges that your Team Leader have registered your team for. Kindly ask your Team Lead to add yourself to the challenge.",
             ],
           },
           {
             id: 43,
-            title: 'How do I join a challenge on Active Lifestyle Tracker?',
+            title: "How do I join a challenge on Active Lifestyle Tracker?",
             answer: [
-              'To join a Team challenge on Active Lifestyle Tracker, only the Team Leader/Assistant needs to register and join the challenge for the Team. If you are not a Team Leader/Assistant, please discuss with your Team Leader/Assistant on the team challenge that you are interested in participating in and ask them to add you to the team challenge',
+              "To join a Team challenge on Active Lifestyle Tracker, only the Team Leader/Assistant needs to register and join the challenge for the Team. If you are not a Team Leader/Assistant, please discuss with your Team Leader/Assistant on the team challenge that you are interested in participating in and ask them to add you to the team challenge",
+              "The Team Leader /Assistant will need to add all team members to the challenge by clicking “Join a Challenge” button and selecting a team that the team leader/assistant wants them to join.",
             ],
           },
           {
             id: 44,
             title:
-              'Can I join any challenges that are available in the Active Lifestyle Tracker?',
+              "Can I join any challenges that are available in the Active Lifestyle Tracker?",
             answer: [
-              'Herbalife Independent Distributors and Preferred Customers will be able to join any available challenges in the Individual category. Herbalife Independent Distributors and Preferred Customers who are Team Leaders/Assistants of a registered team will be able to join any available challenges in the Team Challenge category. Once the Team Leader has joined and assigned the Team Challenge, everyone in the Team will be able to participate by having the team leader add the team members to the challenge. For Customers (Non-Distributors), kindly discuss with your Team Leader/Assistant to add you in the team challenge.',
+              "Herbalife Independent Distributors and Preferred Customers will be able to join any available challenges in the Individual category. Herbalife Independent Distributors and Preferred Customers who are Team Leaders/Assistants of a registered team will be able to join any available challenges in the Team Challenge category. Once the Team Leader has joined and assigned the Team Challenge, everyone in the Team will be able to participate by having the team leader add the team members to the challenge. For Customers (Non-Distributors), kindly discuss with your Team Leader/Assistant to add you in the team challenge.",
             ],
           },
           {
             id: 45,
             title:
-              ' If I want to join the challenge in the middle of the challenge period, can I do so?',
+              " If I want to join the challenge in the middle of the challenge period, can I do so?",
             answer: [
-              'Herbalife Independent Distributors and Preferred Customers will be able to join any available challenges in the Individual category. Herbalife Independent Distributors and Preferred Customers who are Team Leaders/Assistants of a registered team will be able to join any available challenges in the Team Challenge category. Once the Team Leader has joined and assigned the Team Challenge, everyone in the Team will be able to participate by having the team leader add the team members to the challenge. For Customers (Non-Distributors), kindly discuss with your Team Leader/Assistant to add you in the team challenge.',
+              "Please discuss with your Team Leader/Assistant to add you to the challenge during the challenge period. ",
             ],
           },
           {
             id: 46,
             title:
-              'As a Team Lead/Assistant, if I want to add the team members to the challenge in the middle of the challenge period, how can I do it?',
+              "As a Team Lead/Assistant, if I want to add the team members to the challenge in the middle of the challenge period, how can I do it?",
             answer: [
-              'You may add the team members into your team that is participating in the challenge.',
+              "You may add the team members into your team that is participating in the challenge.",
             ],
           },
           {
             id: 47,
             title:
-              'I am not a Team Leader. Can I still join a challenge in the Team category?',
+              "I am not a Team Leader. Can I still join a challenge in the Team category?",
             answer: [
-              'You may add the team members into your team that is participating in the challenge.',
+              "To join a challenge in the Team category, you will need to speak to your Team Leader/Assistant to get him/her to register and join the challenge for your Team. Once the Team Leader has joined and assigned the Team challenge, everyone in the Team will be able to participate. ",
             ],
           },
           {
             id: 48,
             title:
-              'I am not a Team Leader. Can I still join a challenge in the Team category?',
+              "Will I be able to join a challenge that is in other countries?",
             answer: [
-              'To join a challenge in the Team category, you will need to speak to your Team Leader/Assistant to get him/her to register and join the challenge for your Team. Once the Team Leader has joined and assigned the Team challenge, everyone in the Team will be able to participate.',
+              "No, you can only join a challenge based on your country of residence and participation.",
             ],
           },
           {
             id: 49,
             title:
-              'Will I be able to join a challenge that is in other countries?',
+              "I am interested in participating in an available challenge on Active Lifestyle Tracker in the Team Category. What should I do?",
             answer: [
-              'No, you can only join a challenge based on your country of residence and participation.',
+              "If you are not a Team Leader/Assistant of a registered team on Active Lifestyle Tracker, please speak to your Team Leader/Assistant to get him/her to register and join the challenge in the Team Category for your Team.",
+              "For Team Leader/Assistant of a registered team on Active Lifestyle Tracker, go to the Challenge tab of the Active Lifestyle Tracker and tap on your preferred challenge. Click on “Join the challenge” and follow the steps to join the challenge.",
             ],
           },
           {
             id: 50,
             title:
-              'I am interested in participating in an available challenge on Active Lifestyle Tracker in the Team Category. What should I do?',
+              "How do I know the requirements to complete a specific challenge available on Active Lifestyle Tracker?",
             answer: [
-              'If you are not a Team Leader/Assistant of a registered team on Active Lifestyle Tracker, please speak to your Team Leader/Assistant to get him/her to register and join the challenge in the Team Category for your Team.',
-              'For Team Leader/Assistant of a registered team on Active Lifestyle Tracker, go to the Challenge tab of the Active Lifestyle Tracker and tap on your preferred challenge. Click on “Join the challenge” and follow the steps to join the challenge.',
+              "Go to the Challenge tab of the Active Lifestyle Tracker and tap on the specific challenge that you are interested in. You will be able to view the requirements to complete the challenge as well as the challenge duration, recommended Herbalife products, and rewards available under the General Information tab.",
             ],
           },
           {
             id: 51,
             title:
-              'How do I know the requirements to complete a specific challenge available on Active Lifestyle Tracker?',
+              "Do I get a reward from Herbalife for completing the challenge?",
             answer: [
-              'Go to the Challenge tab of the Active Lifestyle Tracker and tap on the specific challenge that you are interested in. You will be able to view the requirements to complete the challenge as well as the challenge duration, recommended Herbalife products, and rewards available under the General Information tab.',
+              "Any available rewards listed under the Challenge tab are given by the challenge creators who can be a Herbalife Independent Distributor or Preferred Customer.",
             ],
           },
           {
             id: 52,
-            title:
-              'Do I get a reward from Herbalife for completing the challenge?',
+            title: "How do I receive the rewards listed under the Challenge?",
             answer: [
-              'Any available rewards listed under the Challenge tab are given by the challenge creators who can be a Herbalife Independent Distributor or Preferred Customer.',
+              "If you qualify for the rewards listed under the Challenge, you will be contacted by your Team Leader/Assistant.",
             ],
           },
           {
             id: 53,
-            title: 'How do I receive the rewards listed under the Challenge?',
+            title:
+              "How do I know if I am eligible to receive the rewards and what should I do if I did not receive the rewards?",
             answer: [
-              'If you qualify for the rewards listed under the Challenge, you will be contacted by your Team Leader/Assistant.',
+              "The challenge results will be available at the end of the challenge. You will be able to view the results by heading over to the Challenge tab of the Active Lifestyle Tracker, tapping on the challenge, and go to the Achievement tab. You will be contacted by your Team Leader/Assistant if you are eligible to receive the rewards.",
             ],
           },
           {
             id: 54,
             title:
-              'How do I know if I am eligible to receive the rewards and what should I do if I did not receive the rewards?',
+              "Do I have to purchase the recommended Herbalife products listed under the Challenge to participate?",
             answer: [
-              'The challenge results will be available at the end of the challenge. You will be able to view the results by heading over to the Challenge tab of the Active Lifestyle Tracker, tapping on the challenge, and go to the Achievement tab. You will be contacted by your Team Leader/Assistant if you are eligible to receive the rewards.',
+              "The recommended Herbalife products listed under the Challenge are to enhance your experience while you participate in the Challenge. Purchase of the recommended Herbalife products is not mandatory however it will be good to have the products to support your healthy active lifestyle.",
             ],
           },
           {
             id: 55,
             title:
-              'Do I have to purchase the recommended Herbalife products listed under the Challenge to participate?',
+              "How do I find out more information or purchase the Herbalife products that are recommended in the Challenge?",
             answer: [
-              'The recommended Herbalife products listed under the Challenge are to enhance your experience while you participate in the Challenge. Purchase of the recommended Herbalife products is not mandatory however it will be good to have the products to support your healthy active lifestyle.',
-            ],
-          },
-          {
-            id: 56,
-            title:
-              'How do I find out more information or purchase the Herbalife products that are recommended in the Challenge?',
-            answer: [
-              'You can get in touch with your Team Leader to find out more or purchase the Herbalife products recommended in the Challenge. Otherwise, you can also go to https://www.herbalife.com/en-sg/u/category/all-products.com to find out more.',
+              "You can get in touch with your Team Leader to find out more or purchase the Herbalife products recommended in the Challenge. Otherwise, you can also go to https://www.herbalife.com/en-sg/u/category/all-products.com to find out more.",
             ],
           },
         ],
       },
       {
-        category: 'All about Active Lifestyle Community',
+        category: "All about Active Lifestyle Community",
         questions: [
+          {
+            id: 56,
+            title:
+              "How do I interact with other users on the Active Lifestyle Tracker?",
+            answer: [
+              "You will be able to interact with your Team members using the Team chat function. To start a Team, go to the Team tab of the Active Lifestyle Tracker and select your Team. Tap on the chat icon in the top right-hand corner to chat with everyone in your team.",
+              "You can also check out the Newsfeed tab of the Active Lifestyle Tracker where you can share a post or simply like, comment, and share any post shared by other users.",
+            ],
+          },
           {
             id: 57,
             title:
-              'How do I interact with other users on the Active Lifestyle Tracker?',
+              "How can I see the fitness progress of other individuals and teams?",
             answer: [
-              'You will be able to interact with your Team members using the Team chat function. To start a Team, go to the Team tab of the Active Lifestyle Tracker and select your Team. Tap on the chat icon in the top right-hand corner to chat with everyone in your team.',
-              'You can also check out the Newsfeed tab of the Active Lifestyle Tracker where you can share a post or simply like, comment, and share any post shared by other users.',
+              "You may search for other individuals or teams progress by searching on the Leaderboard tab of the Active Lifestyle Tracker. The Leaderboard feature is based on your country of residence and participation and other countries Leaderboards will not be featured on your App.",
             ],
           },
           {
             id: 58,
-            title:
-              'How can I see the fitness progress of other individuals and teams?',
+            title: "What are e-badges and where can I view them?",
             answer: [
-              'You may search for other individuals or teams progress by searching on the Leaderboard tab of the Active Lifestyle Tracker. The Leaderboard feature is based on your country of residence and participation and other countries Leaderboards will not be featured on your App.',
+              "e-Badges are virtual badges that you can download and save on your devices from your Active Lifestyle Tracker when you have unlocked them. Please note that no physical badges will be issued",
+              "Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard to view the Individual e-badges under the e-Badge tab. To view Team e-Badges, go to the Team tab of the Active Lifestyle Tracker, select your Team, and tap on the e-Badge tab.",
             ],
           },
           {
             id: 59,
-            title: 'What are e-badges and where can I view them?',
+            title:
+              "How do I motivate my Team members to stay on track in their fitness goals?",
             answer: [
-              'e-Badges are virtual badges that you can download and save on your devices from your Active Lifestyle Tracker when you have unlocked them. Please note that no physical badges will be issued',
-              'Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Dashboard to view the Individual e-badges under the e-Badge tab. To view Team e-Badges, go to the Team tab of the Active Lifestyle Tracker, select your Team, and tap on the e-Badge tab.',
+              "You can motivate your Team members using the Team chat function. To start a Team, go to the Team tab of the Active Lifestyle Tracker and select your Team. Tap on the chat icon in the top right-hand corner to share a motivational message with everyone in your team",
+              "If you are the Team Leader/Assistant, you will also be able to motivate each of your Team members personally using the Recognition or Reminder feature of the Active Lifestyle Tracker.  Go to the Team tab of the Active Lifestyle Tracker, select your Team, and go to the Achievement Update tab. Tap on the name of the Team Member and select Recognition/Reminder. Follow the steps to send your select Team Members a push notification with your personalized message. ",
             ],
           },
           {
             id: 60,
             title:
-              'How do I motivate my Team members to stay on track in their fitness goals?',
+              "Can I share a post on the Newsfeed section? Is this visible to everyone on the Active Lifestyle Tracker?",
             answer: [
-              'You can motivate your Team members using the Team chat function. To start a Team, go to the Team tab of the Active Lifestyle Tracker and select your Team. Tap on the chat icon in the top right-hand corner to share a motivational message with everyone in your team',
-              'If you are the Team Leader/Assistant, you will also be able to motivate each of your Team members personally using the Recognition or Reminder feature of the Active Lifestyle Tracker.  Go to the Team tab of the Active Lifestyle Tracker, select your Team, and go to the Achievement Update tab. Tap on the name of the Team Member and select Recognition/Reminder. Follow the steps to send your select Team Members a push notification with your personalized message. ',
+              "Yes, all users of the Active Lifestyle Tracker will be able to share a post on the Newsfeed section. You will be able to select if you wish to post under the Nationwide tab where it will be visible to all users in your countries or the Team tab where it will only be visible to your Team members. You can also choose to post in your Wall tab where the post will only be visible to you.",
             ],
           },
           {
             id: 61,
             title:
-              'Can I share a post on the Newsfeed section? Is this visible to everyone on the Active Lifestyle Tracker?',
+              "I see an interesting post by another user. Can I share it on my social media too?",
             answer: [
-              'Yes, all users of the Active Lifestyle Tracker will be able to share a post on the Newsfeed section. You will be able to select if you wish to post under the Nationwide tab where it will be visible to all users in your countries or the Team tab where it will only be visible to your Team members. You can also choose to post in your Wall tab where the post will only be visible to you.',
+              "Yes, you can share a post with another user by clicking on the Share button and selecting “More Options” to choose other social or messaging apps for which you wish to share the post.",
             ],
           },
           {
             id: 62,
             title:
-              'I see an interesting post by another user. Can I share it on my social media too?',
+              "There is an inappropriate post on the Newsfeed section. What should I do?",
             answer: [
-              'Yes, you can share a post with another user by clicking on the Share button and selecting “More Options” to choose other social or messaging apps for which you wish to share the post.',
+              "You can report an inappropriate post to us by tapping on the flag icon on the top right-hand corner of the post. Inappropriate posts will be reviewed, and appropriate action will be taken if necessary. You will not receive a response from us unless we require any further information from you.",
             ],
           },
           {
             id: 63,
-            title:
-              'There is an inappropriate post on the Newsfeed section. What should I do?',
+            title: "Do I need to take my phone with me to record my activity?",
             answer: [
-              'You can report an inappropriate post to us by tapping on the flag icon on the top right-hand corner of the post. Inappropriate posts will be reviewed, and appropriate action will be taken if necessary. You will not receive a response from us unless we require any further information from you.',
+              "You will need to bring your phone with you for your activity if you choose to use the In-App Activity Tracker to record your run/walk or cycle directly. You may turn the phone screen off but make sure that the settings of your phone allow location features and the App stays active while you close your phone.",
+              "If you are recording your run using a compatible GPS-enable wearable synced to the Active Lifestyle Tracker through the Apple Health or Google Fit App, please refer to the operating instructions from your wearable providers and Apple Health or Google Fit for more technical guidelines.",
             ],
           },
           {
             id: 64,
-            title: 'Do I need to take my phone with me to record my activity?',
+            title: "My App crashed/froze. What should I do?",
             answer: [
-              'You will need to bring your phone with you for your activity if you choose to use the In-App Activity Tracker to record your run/walk or cycle directly. You may turn the phone screen off but make sure that the settings of your phone allow location features and the App stays active while you close your phone.',
-              'If you are recording your run using a compatible GPS-enable wearable synced to the Active Lifestyle Tracker through the Apple Health or Google Fit App, please refer to the operating instructions from your wearable providers and Apple Health or Google Fit for more technical guidelines.',
+              'First, try closing your app and restarting it. This should take you back to the "Home" tab',
+              "If the problem persists, please contact us at <email address>.",
             ],
           },
           {
             id: 65,
-            title: 'My App crashed /froze. What should I do?',
+            title:
+              "How do I ensure a good GPS signal for the highest accuracy of activity recording using the In-App Activity Tracker?",
             answer: [
-              'First, try closing your app and restarting it. This should take you back to the "Home" tab',
-              'If the problem persists, please contact us at <email address>.',
+              "The GPS uses the chip in your mobile device and the orbiting satellites above the Earth to determine your estimated location. To ensure a good GPS signal for the highest accuracy of run/walk recording, here are some recommendations for you.",
+              `<span class="dot-item">&#x2022; Avoid apps that use GPS at the same time while using Active Lifestyle Tracker.</span>`,
+              `<span class="dot-item">&#x2022; Hold or mount your device as unobstructed as possible instead of burying it deep in your bags.</span>`,
+              `<span class="dot-item">&#x2022; Avoid environments such as underground tunnels and walkways or in a building that might obstruct your mobile device's ability to transmit and receive the GPS signals.</span>`,
+              `<span class="dot-item">&#x2022; Ensure you have a clear view of the sky away from tall buildings or dense forests to acquire the best GPS signals.</span>`,
+              `<span class="dot-item">&#x2022; For specific devices, please refer to your device manufacturer for GPS troubleshooting.,</span>`,
             ],
           },
           {
             id: 66,
             title:
-              'How do I ensure a good GPS signal for the highest accuracy of activity recording using the In-App Activity Tracker?',
+              "My GPS signal is lost and later re-acquired during my activity recording using the In-App Activity Tracker. Will my activity be disqualified after I submit it?",
             answer: [
-              'The GPS uses the chip in your mobile device and the orbiting satellites above the Earth to determine your estimated location. To ensure a good GPS signal for the highest accuracy of run/walk recording, here are some recommendations for you.',
-              'Avoid apps that use GPS at the same time while using Active Lifestyle Tracker.',
-              'Hold or mount your device as unobstructed as possible instead of burying it deep in your bags',
-              "Avoid environments such as underground tunnels and walkways or in a building that might obstruct your mobile device's ability to transmit and receive the GPS signals.",
-              'Ensure you have a clear view of the sky away from tall buildings or dense forests to acquire the best GPS signals.',
-              'For specific devices, please refer to your device manufacturer for GPS troubleshooting.',
+              "The pre-and post-signal loss points will be treated just like any other two subsequent points and will relate to a straight line which can cause your activity to report an inaccurate distance than you travelled, or to not match the route on the map that you would have taken. If you have lost your GPS signal for more than 10 minutes, your activities will be automatically saved and submitted.",
+              "To achieve a good GPS signal for the highest accuracy of activity recording, refer to Q64 for some recommendations.",
             ],
           },
           {
             id: 67,
             title:
-              'My GPS signal is lost and later re-acquired during my activity recording using the In-App Activity Tracker. Will my activity be disqualified after I submit it?',
+              "My team members and I went for the same activity together on the same route and recorded our run using the In-App Activity Tracker. Why does our distance differ?",
             answer: [
-              'The pre-and post-signal loss points will be treated just like any other two subsequent points and will relate to a straight line which can cause your activity to report an inaccurate distance than you travelled, or to not match the route on the map that you would have taken. If you have lost your GPS signal for more than 10 minutes, your activities will be automatically saved and submitted.',
-              'To achieve a good GPS signal for the highest accuracy of activity recording, refer to Q64 for some recommendations.',
+              "The GPS which uses the chip in your mobile device and the orbiting satellites above the Earth to determine your estimated location may behave differently from one device to another which may cause slight differences in the recorded activity distances between your team members and you even though the route is the same.",
             ],
           },
           {
             id: 68,
             title:
-              'My team members and I went for the same activity together on the same route and recorded our run using the In-App Activity Tracker. Why does our distance differ?',
+              "Why do my activity distances as recorded on the In-App Activity differ even though I am on the same route each time?",
             answer: [
-              'The GPS which uses the chip in your mobile device and the orbiting satellites above the Earth to determine your estimated location may behave differently from one device to another which may cause slight differences in the recorded activity distances between your team members and you even though the route is the same.',
+              "The GPS which uses the chip in your mobile device and the orbiting satellites above the Earth to determine your estimated location may behave differently from one day to the other which may cause slight differences in your activity distances even though your route is the same.",
+              "To achieve a good GPS signal for the highest accuracy of activity recording, refer to Q64 for some recommendations.",
             ],
           },
           {
             id: 69,
             title:
-              'Why do my activity distances as recorded on the In-App Activity differ even though I am on the same route each time?',
+              "Can I record my activity with other tracking apps at the same time as the Active Lifestyle Tracker?",
             answer: [
-              'The GPS which uses the chip in your mobile device and the orbiting satellites above the Earth to determine your estimated location may behave differently from one day to the other which may cause slight differences in your activity distances even though your route is the same.',
-              'To achieve a good GPS signal for the highest accuracy of activity recording, refer to Q64 for some recommendations.',
+              "Activity submissions are only available through any of the three options listed in Q14 We strongly recommend that you use only one tracking app for each of your activities to avoid any duplicated submissions which will be removed from your activity records.",
             ],
           },
           {
             id: 70,
             title:
-              'Can I record my activity with other tracking apps at the same time as the Active Lifestyle Tracker?',
+              "Can I sync the Active Lifestyle Tracker with other running apps such as Strava, Nike Run Club, Adidas Running, Map My Run, RunKeeper, etc for submission of my activity results?",
             answer: [
-              'Activity submissions are only available through any of the three options listed in Q14 We strongly recommend that you use only one tracking app for each of your activities to avoid any duplicated submissions which will be removed from your activity records.',
+              "Unfortunately, other running apps that cannot be synced with Apple Health or Google Fit App to submit the run submissions are not compatible to be sync with Active Lifestyle Tracker. You may record your activity directly using the In-App Activity Tracker for a fuss-free experience. Alternatively, you may check the list of supported wearables in Q14.",
             ],
           },
           {
             id: 71,
             title:
-              'Can I sync the Active Lifestyle Tracker with other running apps such as Strava, Nike Run Club, Adidas Running, Map My Run, RunKeeper, etc for submission of my activity results?',
+              "My activity record is missing and not captured on my Dashboard. What should I do?",
             answer: [
-              'Unfortunately, other running apps that cannot be synced with Apple Health or Google Fit App to submit the run submissions are not compatible to be sync with Active Lifestyle Tracker. You may record your activity directly using the In-App Activity Tracker for a fuss-free experience. Alternatively, you may check the list of supported wearables in Q14.',
+              "Firstly, ensure that you have clicked on the “Start” button if you are recording your activity using the In-App Activity Tracker directly. Restart the App to refresh the page so that all activities can be synced automatically.",
+              "If you are recording your run/walk using your paired compatible GPS-enabled wearable to Apple Health or Google Fit App synced to Active Lifestyle Tracker, firstly ensure the activity is synced to Apple Health or Google Fit App. Next, launch the Active Lifestyle Tracker again to sync all activities from your Apple Health or Google Fit App.",
+              "If the problem persists, please contact us at <email address>.",
             ],
           },
           {
             id: 72,
-            title:
-              'My activity record is missing and not captured on my Dashboard. What should I do?',
-            answer: [
-              'Firstly, ensure that you have clicked on the “Start” button if you are recording your activity using the In-App Activity Tracker directly. Restart the App to refresh the page so that all activities can be synced automatically.',
-              'If you are recording your run/walk using your paired compatible GPS-enabled wearable to Apple Health or Google Fit App synced to Active Lifestyle Tracker, firstly ensure the activity is synced to Apple Health or Google Fit App. Next, launch the Active Lifestyle Tracker again to sync all activities from your Apple Health or Google Fit App.',
-              'If the problem persists, please contact us at <email address>.',
-            ],
-          },
-          {
-            id: 73,
-            title: 'My location is not tracking in the app. What should I do?',
+            title: "My location is not tracking in the app. What should I do?",
             answer: [
               'Your phone location settings for the App must be turned on and set to "Always Allow". Click the "Settings" icon under the menu button on the top right corner of your App to ensure that the location setting for the App is turned on.',
             ],
           },
           {
-            id: 74,
+            id: 73,
             title:
-              'Where can I view all the app notifications that I have received? ',
+              "Where can I view all the app notifications that I have received? ",
             answer: [
-              'Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Alert. You will be able to view all app notifications classified into different notification categories.',
+              "Tap on the Menu button located on the top right-hand corner of the Active Lifestyle Tracker and select Alert. You will be able to view all app notifications classified into different notification categories.",
             ],
           },
         ],
       },
     ];
-    let faq = document.querySelector('.faq');
+    let faq = document.querySelector(".faq");
 
     const htmlexploreChoose = DATA.map((item) => {
       const { questions, category } = item;
@@ -1075,28 +1142,28 @@
       const questionsHTML = questions
         .map((question) => {
           const { id, title, answer } = question;
-          const answersHTML = answer.map((value) => `<p>${value}</p>`).join('');
+          const answersHTML = answer.map((value) => `<p>${value}</p>`).join("");
           return `
-                <details class="accordion">
-                  <summary class="accordion-btn">${id}. ${title}</summary>
-                  <div class="accordion-content">
-                    ${answersHTML}
-                  </div>
-                </details>
-              `;
+            <details class="accordion">
+              <summary class="accordion-btn">${id}. ${title}</summary>
+              <div class="accordion-content">
+                ${answersHTML}
+              </div>
+            </details>
+          `;
         })
-        .join('');
+        .join("");
 
       return `
-            <div class="category">
-              <div class="category-title">${category}</div>
-              <div class="category-container">
-                ${questionsHTML}
-              </div>
+        <div class="category">
+        <div class="category-title">${category}</div>
+            <div class="category-container">
+              ${questionsHTML}
             </div>
-          `;
+        </div>
+      `;
     });
 
-    faq.innerHTML = htmlexploreChoose.join('');
+    faq.innerHTML = htmlexploreChoose.join("");
   </script>
 </html>
